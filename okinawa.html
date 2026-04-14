@@ -219,12 +219,20 @@
   /* ── PROPERTIES ── */
   .props-section { padding: 0 0 112px; background: var(--sage); }
 
+  .props-two-col {
+    display: grid; grid-template-columns: 1fr 1fr;
+  }
   .prop-full {
     position: relative; overflow: hidden;
     min-height: 90vh; display: flex; align-items: flex-end;
     padding: 0 64px 72px;
   }
-  .prop-full + .prop-full { border-top: 4px solid var(--white); }
+  .props-two-col .prop-full { min-height: 80vh; }
+  .props-two-col .prop-full-content {
+    grid-template-columns: 1fr; gap: 40px;
+  }
+  .props-two-col .prop-right { align-items: stretch; }
+  .prop-full + .prop-full { border-top: none; }
   .prop-full-bg {
     position: absolute; inset: 0;
     background-size: cover; background-position: center;
@@ -473,6 +481,7 @@
     .hero { padding: 0 24px 64px; }
     .intro { grid-template-columns: 1fr; gap: 40px; padding: 72px 24px; }
     .intro-sticky { position: static; }
+    .props-two-col { grid-template-columns: 1fr; }
     .prop-full { padding: 0 24px 56px; min-height: 70vh; }
     .prop-full-content { grid-template-columns: 1fr; gap: 32px; }
     .prop-right { align-items: stretch; }
@@ -675,6 +684,7 @@
     </div>
   </section>
 
+  <div class="props-two-col">
   <!-- Villa JYANA -->
   <div class="prop-full" id="jyana">
     <div class="prop-full-bg" style="background-image: url('https://images.unsplash.com/photo-1564979268369-42032c5ca998?w=1800&auto=format&fit=crop&q=80');"></div>
@@ -774,6 +784,7 @@
       </div>
     </div>
   </div>
+  </div><!-- /.props-two-col -->
 
 </div>
 
