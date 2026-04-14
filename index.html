@@ -49,7 +49,6 @@
     --gold-light: #d4bc78;
     --muted: #6b7d6e;
     --white: #fafcf8;
-    --footer-h: 60px;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -61,8 +60,6 @@
     font-family: 'DM Sans', sans-serif;
     font-weight: 300;
     overflow-x: hidden;
-    /* space for sticky footer */
-    padding-bottom: var(--footer-h);
   }
 
   /* ════════════════════════════
@@ -211,32 +208,6 @@
   /* ════════════════════════════
      STICKY BOTTOM NAV (footer)
   ════════════════════════════ */
-  nav.bottomnav {
-    position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
-    height: var(--footer-h);
-    background: var(--ink);
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 48px;
-    border-top: 1px solid rgba(255,255,255,0.07);
-  }
-  .bottomnav-left {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase;
-    color: rgba(255,255,255,0.5); text-decoration: none;
-  }
-  .bottomnav-left span { color: rgba(255,255,255,0.25); margin: 0 10px; }
-  .bottomnav-center {
-    display: flex; gap: 32px;
-  }
-  .bottomnav-center a {
-    font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
-    color: rgba(255,255,255,0.38); text-decoration: none; transition: color 0.3s;
-  }
-  .bottomnav-center a:hover { color: var(--gold-light); }
-  .bottomnav-right {
-    font-size: 10px; color: rgba(255,255,255,0.22); letter-spacing: 0.06em;
-  }
-
   /* ════════════════════════════
      HERO
   ════════════════════════════ */
@@ -715,13 +686,40 @@
   .reveal-delay-3 { transition-delay: 0.3s; }
 
   /* ════════════════════════════
+     HAMBURGER
+  ════════════════════════════ */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 301;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 1px;
+    background: var(--white);
+    transition: all 0.3s;
+  }
+  .nav-hamburger.open span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  .nav-hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-hamburger.open span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  /* ════════════════════════════
      RESPONSIVE
   ════════════════════════════ */
   @media (max-width: 960px) {
     nav.topnav { padding: 18px 24px; }
-    nav.bottomnav { padding: 0 20px; }
-    .bottomnav-center { gap: 18px; }
-    .bottomnav-right { display: none; }
     .hero { padding: 0 24px 72px; }
     .hero-deco { display: none; }
     .intro { grid-template-columns: 1fr; gap: 36px; padding: 80px 24px; }
@@ -736,6 +734,30 @@
     .exp-grid { grid-template-columns: 1fr; gap: 40px; }
     .cambodia-section { padding: 72px 24px; }
     .cambodia-content { grid-template-columns: 1fr; gap: 40px; }
+    .nav-links {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--ink);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      z-index: 300;
+    }
+    .nav-links.open {
+      display: flex;
+    }
+    .nav-links a {
+      font-size: 22px;
+      letter-spacing: 0.12em;
+      color: var(--white);
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+    }
+    .nav-hamburger {
+      display: flex;
+    }
   }
 </style>
 </head>
@@ -751,6 +773,11 @@
     <a href="#contact">Contact</a>
     <span class="nav-lang">EN / JA</span>
   </div>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
 
 <!-- ── HERO ── -->
@@ -1073,26 +1100,6 @@
   </div>
 </footer>
 
-<!-- ── STICKY BOTTOM NAV ── -->
-<nav class="bottomnav" id="contact">
-  <div class="bottomnav-left">
-    SGH Resorts
-    <span>|</span>
-    <a href="https://www.airbnb.jp" target="_blank" style="color:rgba(255,255,255,0.4); text-decoration:none; font-family:'DM Sans',sans-serif; font-size:10px; letter-spacing:0.12em;">Airbnb</a>
-    <span>|</span>
-    <a href="https://www.localtimevillage.com" target="_blank" style="color:rgba(255,255,255,0.4); text-decoration:none; font-family:'DM Sans',sans-serif; font-size:10px; letter-spacing:0.12em;">Local Time Village</a>
-  </div>
-  <div class="bottomnav-center">
-    <a href="#brands">Collections</a>
-    <a href="okinawa.html">沖縄</a>
-    <a href="miyako.html">宮古島</a>
-    <a href="#corporate">法人・団体</a>
-    <a href="https://www.instagram.com/sghresorts" target="_blank">@sghresorts</a>
-    <a href="mailto:info@sghresorts.com">Contact</a>
-  </div>
-  <div class="bottomnav-right">© 2025 SGH Resorts</div>
-</nav>
-
 <script>
   // Top nav scroll effect
   const topNav = document.getElementById('topNav');
@@ -1138,6 +1145,23 @@
     img.src = src;
   });
 })();
+</script>
+
+<script>
+  const hamburger = document.getElementById('navHamburger');
+  const navLinks = document.querySelector('.nav-links');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        navLinks.classList.remove('open');
+      });
+    });
+  }
 </script>
 
 </body>

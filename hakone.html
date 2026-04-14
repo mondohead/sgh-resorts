@@ -149,6 +149,61 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
+  /* ── HAMBURGER ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 301;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 1px;
+    background: var(--white);
+    transition: all 0.3s;
+  }
+  .nav-hamburger.open span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  .nav-hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-hamburger.open span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  @media (max-width: 960px) {
+    .nav-links {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--ink);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      z-index: 300;
+    }
+    .nav-links.open {
+      display: flex;
+    }
+    .nav-links a {
+      font-size: 22px;
+      letter-spacing: 0.12em;
+      color: var(--white);
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+    }
+    .nav-hamburger {
+      display: flex;
+    }
+  }
+
   @media (max-width: 640px) {
     nav { padding: 22px 24px; }
     .notify-form { flex-direction: column; }
@@ -238,6 +293,11 @@
     <a href="corporate.html">法人・団体</a>
     <a href="https://www.localtimevillage.com" target="_blank">Cambodia ↗</a>
   </div>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
 
 <div class="center">
@@ -315,5 +375,21 @@
   </div>
 </footer>
 
+<script>
+  const hamburger = document.getElementById('navHamburger');
+  const navLinks = document.querySelector('.nav-links');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        navLinks.classList.remove('open');
+      });
+    });
+  }
+</script>
 </body>
 </html>

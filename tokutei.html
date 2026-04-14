@@ -6,13 +6,20 @@
 <title>特定商取引法に基づく表記 | SGH Resorts</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=DM+Sans:wght@300;400&family=Lora:wght@300;400&display=swap" rel="stylesheet">
 <style>
-  :root { --ink: #0e1a14; --fern: #3d6b48; --warm: #e8ede4; --muted: #6b7d6e; --white: #fafcf8; --gold-light: #d4bc78; --footer-h: 60px; }
+  :root { --ink: #0e1a14; --fern: #3d6b48; --warm: #e8ede4; --muted: #6b7d6e; --white: #fafcf8; --gold-light: #d4bc78; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: var(--white); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; padding-bottom: var(--footer-h); }
+  body { background: var(--white); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; }
   nav.topnav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; justify-content: space-between; align-items: center; padding: 22px 48px; background: var(--ink); }
   .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 15px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); text-decoration: none; }
-  .nav-back { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; color: rgba(255,255,255,0.5); }
-  .nav-back:hover { color: var(--gold-light); }
+  .nav-links {
+    display: flex; align-items: center; gap: 24px;
+  }
+  .nav-links a {
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    text-decoration: none; color: rgba(255,255,255,0.6); transition: color 0.3s;
+  }
+  nav.topnav.scrolled .nav-links a { color: var(--muted); }
+  .nav-links a:hover { color: var(--gold-light); }
   .page-header { background: var(--ink); padding: 140px 48px 64px; }
   .page-header-label { font-size: 9px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 12px; }
   .page-header-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(26px, 3.5vw, 42px); font-weight: 300; color: var(--white); }
@@ -23,10 +30,59 @@
   th { text-align: left; padding: 18px 20px 18px 0; font-size: 11px; font-weight: 400; color: var(--muted); width: 180px; vertical-align: top; letter-spacing: 0.04em; }
   td { padding: 18px 0; line-height: 1.9; color: var(--ink); font-size: 13px; }
   td a { color: var(--fern); }
-  nav.bottomnav { position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; height: var(--footer-h); background: var(--ink); display: flex; align-items: center; justify-content: space-between; padding: 0 48px; border-top: 1px solid rgba(255,255,255,0.07); }
-  .bottomnav-center { display: flex; gap: 28px; }
-  .bottomnav-center a { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.38); text-decoration: none; }
-  @media (max-width: 768px) { nav.topnav, nav.bottomnav { padding: 18px 24px; } .page-header { padding: 110px 24px 48px; } .content { padding: 60px 24px; } th { width: 120px; } }
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 301;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 1px;
+    background: var(--white);
+    transition: all 0.3s;
+  }
+  .nav-hamburger.open span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  .nav-hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-hamburger.open span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+  @media (max-width: 960px) {
+    .nav-links {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--ink);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      z-index: 300;
+    }
+    .nav-links.open {
+      display: flex;
+    }
+    .nav-links a {
+      font-size: 22px;
+      letter-spacing: 0.12em;
+      color: var(--white);
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+    }
+    .nav-hamburger {
+      display: flex;
+    }
+  }
+  @media (max-width: 768px) { nav.topnav { padding: 18px 24px; } .page-header { padding: 110px 24px 48px; } .content { padding: 60px 24px; } th { width: 120px; } }
 
   /* ════════════════════════════
      SITE FOOTER
@@ -69,9 +125,20 @@
 </style>
 </head>
 <body>
-<nav class="topnav">
-  <a href="sgh-final.html" class="nav-logo">SGH Resorts</a>
-  <a href="sgh-final.html" class="nav-back">← Top</a>
+<nav class="topnav" id="topNav">
+  <a href="index.html" class="nav-logo">SGH Resorts</a>
+  <div class="nav-links">
+    <a href="okinawa.html">沖縄</a>
+    <a href="miyako.html">宮古島</a>
+    <a href="hakone.html">箱根</a>
+    <a href="corporate.html">法人・団体</a>
+    <a href="https://www.localtimevillage.com" target="_blank">Cambodia ↗</a>
+  </div>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
 
 <div class="page-header">
@@ -171,12 +238,21 @@
   </div>
 </footer>
 
-<nav class="bottomnav">
-  <div class="bottomnav-center">
-    <a href="sgh-final.html">← Top</a>
-    <a href="privacy.html">プライバシーポリシー</a>
-    <a href="mailto:info@sghresorts.com">Contact</a>
-  </div>
-</nav>
+<script>
+  const hamburger = document.getElementById('navHamburger');
+  const navLinks = document.querySelector('.nav-links');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        navLinks.classList.remove('open');
+      });
+    });
+  }
+</script>
 </body>
 </html>

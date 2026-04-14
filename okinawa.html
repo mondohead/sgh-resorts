@@ -73,7 +73,6 @@
     --gold-light: #d4bc78;
     --muted: #6b7d6e;
     --white: #fafcf8;
-    --footer-h: 60px;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -83,7 +82,6 @@
     font-family: 'DM Sans', sans-serif;
     font-weight: 300;
     overflow-x: hidden;
-    padding-bottom: var(--footer-h);
   }
 
   /* ── NAV ── */
@@ -365,28 +363,6 @@
   }
   .corp-btn:hover { background: var(--gold); color: var(--ink); border-color: var(--gold); }
 
-  /* ── BOTTOM NAV ── */
-  nav.bottomnav {
-    position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
-    height: var(--footer-h);
-    background: var(--ink);
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 48px;
-    border-top: 1px solid rgba(255,255,255,0.07);
-  }
-  .bottomnav-left {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase;
-    color: rgba(255,255,255,0.5); text-decoration: none;
-  }
-  .bottomnav-left span { color: rgba(255,255,255,0.2); margin: 0 10px; }
-  .bottomnav-center { display: flex; gap: 28px; }
-  .bottomnav-center a {
-    font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
-    color: rgba(255,255,255,0.38); text-decoration: none; transition: color 0.3s;
-  }
-  .bottomnav-center a:hover { color: var(--gold-light); }
-
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
@@ -463,10 +439,38 @@
     opacity: 1; transform: translateY(0);
   }
 
+  /* ── HAMBURGER ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 301;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 1px;
+    background: var(--white);
+    transition: all 0.3s;
+  }
+  .nav-hamburger.open span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  .nav-hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-hamburger.open span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
   /* ── RESPONSIVE ── */
   @media (max-width: 960px) {
     nav.topnav { padding: 18px 24px; }
-    nav.bottomnav { padding: 0 20px; }
+
     .hero { padding: 0 24px 64px; }
     .intro { grid-template-columns: 1fr; gap: 40px; padding: 72px 24px; }
     .intro-sticky { position: static; }
@@ -476,7 +480,6 @@
     .exp-grid { grid-template-columns: 1fr; gap: 32px; padding: 0; }
     .experience-section { padding: 80px 24px; }
     .corporate-cta-section { flex-direction: column; align-items: flex-start; padding: 56px 24px; }
-    .bottomnav-center { gap: 16px; }
     .chooser { padding: 80px 24px; }
     .chooser-grid { grid-template-columns: 1fr; gap: 0; }
     .chooser-grid::before {
@@ -486,6 +489,30 @@
       top: 50%;
     }
     .chooser-card { padding: 40px 24px; }
+    .nav-links {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--ink);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      z-index: 300;
+    }
+    .nav-links.open {
+      display: flex;
+    }
+    .nav-links a {
+      font-size: 22px;
+      letter-spacing: 0.12em;
+      color: var(--white);
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+    }
+    .nav-hamburger {
+      display: flex;
+    }
   }
 
   /* ════════════════════════════
@@ -540,6 +567,11 @@
     <a href="corporate.html">法人・団体</a>
     <a href="https://www.localtimevillage.com" target="_blank">Cambodia ↗</a>
   </div>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
 
 <!-- ── HERO ── -->
@@ -865,22 +897,6 @@
   </div>
 </footer>
 
-<!-- ── BOTTOM NAV ── -->
-<nav class="bottomnav">
-  <div class="bottomnav-left">
-    <a href="sgh-final.html" style="color:rgba(255,255,255,0.5); text-decoration:none; font-family:'Cormorant Garamond',serif; font-size:13px; letter-spacing:0.18em; text-transform:uppercase;">SGH Resorts</a>
-    <span>|</span>
-    沖縄
-  </div>
-  <div class="bottomnav-center">
-    <a href="sgh-final.html">← Top</a>
-    <a href="#jyana">Villa JYANA</a>
-    <a href="#uruma">URUMA DOME</a>
-    <a href="miyako.html">宮古島 →</a>
-    <a href="https://www.instagram.com/sgh.okinawa" target="_blank">@sgh.okinawa</a>
-  </div>
-</nav>
-
 <script>
   const topNav = document.getElementById('topNav');
   window.addEventListener('scroll', () => {
@@ -893,6 +909,22 @@
     });
   }, { threshold: 0.1 });
   reveals.forEach(el => observer.observe(el));
+</script>
+<script>
+  const hamburger = document.getElementById('navHamburger');
+  const navLinks = document.querySelector('.nav-links');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        navLinks.classList.remove('open');
+      });
+    });
+  }
 </script>
 </body>
 </html>
