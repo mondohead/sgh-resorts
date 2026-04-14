@@ -33,7 +33,7 @@
   nav.topnav.scrolled .nav-links a { color: var(--muted); }
   .nav-links a:hover { color: var(--gold-light); }
   .nav-sub { display: none; }
-  .nav-dropdown { position: relative; display: inline-block; }
+  .nav-dropdown { position: relative; display: inline-flex; align-items: center; vertical-align: middle; }
   .nav-dropdown::after {
     content: '';
     position: absolute;
@@ -72,6 +72,13 @@
   }
   .page-header-label { font-size: 9px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 14px; }
   .page-header-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 7vw, 80px); font-weight: 300; color: var(--white); }
+  .page-header-sub {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.08em;
+    margin-top: 12px;
+  }
 
   .news-list { max-width: 800px; margin: 0 auto; padding: 80px 48px; }
 
@@ -241,7 +248,8 @@
 
 <div class="page-header">
   <p class="page-header-label">News</p>
-  <h1 class="page-header-title">お知らせ</h1>
+  <h1 class="page-header-title">News</h1>
+  <p class="page-header-sub">お知らせ</p>
 </div>
 
 <div class="news-list">

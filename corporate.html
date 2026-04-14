@@ -76,7 +76,7 @@
   nav.topnav.scrolled .nav-links a { color: var(--muted); }
   .nav-links a:hover { color: var(--gold-light); }
   .nav-sub { display: none; }
-  .nav-dropdown { position: relative; display: inline-block; }
+  .nav-dropdown { position: relative; display: inline-flex; align-items: center; vertical-align: middle; }
   .nav-dropdown::after {
     content: '';
     position: absolute;
@@ -244,7 +244,7 @@
   .facilities-section { padding: 112px 48px; background: var(--white); }
   .facilities-inner { max-width: 1200px; margin: 0 auto; }
   .facilities-header { margin-bottom: 56px; }
-  .facilities-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .facilities-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; }
   .facility-card {
     position: relative; overflow: hidden; min-height: 360px;
     display: flex; flex-direction: column; justify-content: flex-end;
@@ -458,7 +458,7 @@
     .usecase-section, .included-section, .contact-section { padding: 80px 24px; }
     .reason-grid { grid-template-columns: 1fr; gap: 2px; }
     .usecase-grid { grid-template-columns: 1fr; }
-    .facilities-grid { grid-template-columns: 1fr 1fr; }
+    .facilities-grid { grid-template-columns: 1fr; }
     .included-grid { grid-template-columns: repeat(2, 1fr); }
     .contact-inner { grid-template-columns: 1fr; gap: 48px; }
     .form-row { grid-template-columns: 1fr; }
@@ -642,7 +642,7 @@
     <h2 class="usecase-title reveal">こんな使い方をされています。</h2>
     <div class="usecase-grid">
       <div class="usecase-item reveal">
-        <div class="usecase-icon">🏕</div>
+        <div class="usecase-icon"><svg width="32" height="32" viewBox="0 0 28 28" fill="none" stroke="#c4a84a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="22" height="17" rx="2"/><path d="M9 8V6a5 5 0 0110 0v2"/></svg></div>
         <h3 class="usecase-name">研修・合宿</h3>
         <p class="usecase-body">新入社員研修、幹部合宿、部署合宿。完全貸切のため自社のスケジュールで動ける。早朝からでも、夜遅くまでも。</p>
         <div class="usecase-tags">
@@ -653,7 +653,7 @@
         </div>
       </div>
       <div class="usecase-item reveal reveal-delay-1">
-        <div class="usecase-icon">✈️</div>
+        <div class="usecase-icon"><svg width="32" height="32" viewBox="0 0 28 28" fill="none" stroke="#c4a84a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3l11 6v10l-11 6L3 19V9z"/><path d="M3 9l11 6 11-6M14 3v18"/></svg></div>
         <h3 class="usecase-name">インセンティブツアー</h3>
         <p class="usecase-body">成績優秀者や特定チームへの報酬としての旅行。ホテルではなく一棟貸切という特別感が、モチベーションの報酬になる。</p>
         <div class="usecase-tags">
@@ -663,7 +663,7 @@
         </div>
       </div>
       <div class="usecase-item reveal reveal-delay-1">
-        <div class="usecase-icon">🌿</div>
+        <div class="usecase-icon"><svg width="32" height="32" viewBox="0 0 28 28" fill="none" stroke="#c4a84a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="14" cy="14" r="10"/><path d="M14 7v7l4 2.5"/></svg></div>
         <h3 class="usecase-name">リトリート・オフサイト</h3>
         <p class="usecase-body">日常を離れてゆっくり話す場所。戦略合宿・ビジョン共有・プロジェクトの振り返りに。会議室で決まらなかったことが、ここで動き出す。</p>
         <div class="usecase-tags">
@@ -674,7 +674,7 @@
         </div>
       </div>
       <div class="usecase-item reveal reveal-delay-2">
-        <div class="usecase-icon">📸</div>
+        <div class="usecase-icon"><svg width="32" height="32" viewBox="0 0 28 28" fill="none" stroke="#c4a84a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="22" height="18" rx="2"/><circle cx="14" cy="13" r="4"/><path d="M19 4l2-2h3v3l-2 2"/></svg></div>
         <h3 class="usecase-name">撮影・イベント</h3>
         <p class="usecase-body">商品撮影・ブランドムービー・ポップアップイベント・ブランドイベントに。完全貸切のため、空間を自由に使える。</p>
         <div class="usecase-tags">
@@ -685,7 +685,7 @@
         </div>
       </div>
       <div class="usecase-item reveal">
-        <div class="usecase-icon">🎁</div>
+        <div class="usecase-icon"><svg width="32" height="32" viewBox="0 0 28 28" fill="none" stroke="#c4a84a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="9" r="4"/><circle cx="20" cy="9" r="4"/><path d="M2 25c0-4.4 3.6-8 8-8M16 25c0-4.4 3.6-8 8-8"/></svg></div>
         <h3 class="usecase-name">福利厚生・社員旅行</h3>
         <p class="usecase-body">会社として社員に提供する旅行や休暇制度に。「どこに行くか」ではなく「どう過ごすか」を大切にする社員への、ちゃんとした選択肢。</p>
         <div class="usecase-tags">
@@ -695,7 +695,7 @@
         </div>
       </div>
       <div class="usecase-item reveal reveal-delay-1">
-        <div class="usecase-icon">💍</div>
+        <div class="usecase-icon"><svg width="32" height="32" viewBox="0 0 28 28" fill="none" stroke="#c4a84a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3l2.5 8H24l-6.5 4.5 2.5 8L14 19l-6 4.5 2.5-8L4 11h7.5z"/></svg></div>
         <h3 class="usecase-name">特別な滞在</h3>
         <p class="usecase-body">Wedding stay、記念日旅行、家族の集まりなど。完全貸切だから、大切な人たちだけの空間をつくれる。</p>
         <div class="usecase-tags">
