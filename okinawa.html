@@ -104,13 +104,15 @@
     color: var(--white); text-decoration: none; transition: color 0.3s;
   }
   nav.topnav.scrolled .nav-logo { color: var(--ink); }
-  .nav-back {
-    font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
-    text-decoration: none; color: rgba(255,255,255,0.7);
-    display: flex; align-items: center; gap: 8px; transition: color 0.3s;
+  .nav-links {
+    display: flex; align-items: center; gap: 24px;
   }
-  nav.topnav.scrolled .nav-back { color: var(--muted); }
-  .nav-back:hover { color: var(--gold-light); }
+  .nav-links a {
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    text-decoration: none; color: rgba(255,255,255,0.6); transition: color 0.3s;
+  }
+  nav.topnav.scrolled .nav-links a { color: var(--muted); }
+  .nav-links a:hover { color: var(--gold-light); }
 
   /* ── HERO ── */
   .hero {
@@ -530,8 +532,14 @@
 
 <!-- ── TOP NAV ── -->
 <nav class="topnav" id="topNav">
-  <a href="sgh-final.html" class="nav-logo">SGH Resorts</a>
-  <a href="sgh-final.html" class="nav-back">← Collections</a>
+  <a href="index.html" class="nav-logo">SGH Resorts</a>
+  <div class="nav-links">
+    <a href="okinawa.html">沖縄</a>
+    <a href="miyako.html">宮古島</a>
+    <a href="hakone.html">箱根</a>
+    <a href="corporate.html">法人・団体</a>
+    <a href="https://www.localtimevillage.com" target="_blank">Cambodia ↗</a>
+  </div>
 </nav>
 
 <!-- ── HERO ── -->

@@ -57,7 +57,7 @@
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
   }
 
-  nav {
+  nav.topnav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 10;
     display: flex; justify-content: space-between; align-items: center;
     padding: 28px 48px;
@@ -68,11 +68,14 @@
     color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.3s;
   }
   .nav-logo:hover { color: var(--gold-light); }
-  .nav-back {
-    font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
-    color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.3s;
+  .nav-links {
+    display: flex; align-items: center; gap: 24px;
   }
-  .nav-back:hover { color: var(--gold-light); }
+  .nav-links a {
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    text-decoration: none; color: rgba(255,255,255,0.4); transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
 
   .center {
     position: relative; z-index: 2;
@@ -226,9 +229,15 @@
 <div class="bg"></div>
 <div class="grain"></div>
 
-<nav>
-  <a href="https://sghresorts.com" class="nav-logo">SGH Resorts</a>
-  <a href="https://www.instagram.com/wabisabi.hakone" target="_blank" class="nav-back">@wabisabi.hakone</a>
+<nav class="topnav">
+  <a href="index.html" class="nav-logo">SGH Resorts</a>
+  <div class="nav-links">
+    <a href="okinawa.html">沖縄</a>
+    <a href="miyako.html">宮古島</a>
+    <a href="hakone.html">箱根</a>
+    <a href="corporate.html">法人・団体</a>
+    <a href="https://www.localtimevillage.com" target="_blank">Cambodia ↗</a>
+  </div>
 </nav>
 
 <div class="center">
