@@ -87,31 +87,7 @@
   }
   nav.topnav.scrolled .nav-links a { color: var(--muted); }
   .nav-links a:hover { color: var(--gold-light); }
-
-  .nav-dropdown { position: relative; }
-  .nav-dropdown-trigger {
-    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
-    color: rgba(255,255,255,0.6); cursor: pointer; transition: color 0.3s;
-  }
-  .nav-dropdown:hover .nav-dropdown-trigger { color: var(--gold-light); }
-  .nav-dropdown-menu {
-    display: none;
-    position: absolute; top: calc(100% + 16px); left: 50%;
-    transform: translateX(-50%);
-    background: var(--ink);
-    border: 1px solid rgba(255,255,255,0.1);
-    padding: 16px 0; min-width: 220px;
-    z-index: 400;
-  }
-  .nav-dropdown:hover .nav-dropdown-menu { display: block; }
-  .nav-dropdown-menu a {
-    display: block;
-    font-size: 11px; letter-spacing: 0.1em;
-    color: rgba(255,255,255,0.6); text-decoration: none;
-    padding: 10px 24px; transition: color 0.3s;
-  }
-  .nav-dropdown-menu a:hover { color: var(--white); }
-  nav.topnav.scrolled .nav-dropdown-trigger { color: var(--muted); }
+  .nav-sub { display: none; }
 
   /* ── HERO ── */
   .hero {
@@ -403,29 +379,19 @@
       font-family: 'Cormorant Garamond', serif;
       font-weight: 300;
     }
+    .nav-sub {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.35);
+      margin-top: 4px;
+      font-style: normal;
+      text-transform: none;
+    }
     .nav-hamburger {
       display: flex;
     }
-    .nav-dropdown { width: 100%; text-align: center; }
-    .nav-dropdown-trigger {
-      font-size: 22px; letter-spacing: 0.12em;
-      color: var(--white);
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 300;
-    }
-    .nav-dropdown-menu {
-      position: static; background: none; border: none;
-      transform: none; min-width: auto;
-      padding: 8px 0 8px 16px;
-      display: none;
-    }
-    .nav-dropdown-menu.open { display: block; }
-    .nav-dropdown-menu a {
-      font-size: 16px; padding: 8px 0;
-      color: rgba(255,255,255,0.5);
-    }
-    .nav-dropdown:hover .nav-dropdown-menu { display: none; }
-    .nav-dropdown-menu.open { display: block !important; }
   }
 
   /* ════════════════════════════
@@ -672,7 +638,6 @@
   <a href="mailto:info@sghresorts.com" class="corp-btn">法人・団体のお問い合わせ →</a>
 </section>
 
-
 <!-- ── SITE FOOTER ── -->
 <footer class="site-footer">
   <div class="footer-inner">
@@ -730,8 +695,6 @@
 <script>
   const hamburger = document.getElementById('navHamburger');
   const navLinks = document.querySelector('.nav-links');
-  const dropdownTrigger = document.querySelector('.nav-dropdown-trigger');
-  const dropdownMenu = document.querySelector('.nav-dropdown-menu');
   if (hamburger && navLinks) {
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('open');
@@ -742,12 +705,6 @@
         hamburger.classList.remove('open');
         navLinks.classList.remove('open');
       });
-    });
-  }
-  if (dropdownTrigger && dropdownMenu) {
-    dropdownTrigger.addEventListener('click', (e) => {
-      e.stopPropagation();
-      dropdownMenu.classList.toggle('open');
     });
   }
 </script>
