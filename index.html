@@ -518,20 +518,17 @@
   }
   .prop-card:hover .prop-bg { transform: scale(1.06); }
 
-  /* URUMA — sea/ocean dome */
   .prop-uruma .prop-bg {
-    background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=960&auto=format&fit=crop&q=80');
-    background-color: #1a3a4a;
+    background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=960&auto=format&fit=crop&q=80') !important;
+    background-color: #1a3a4a; opacity: 1 !important;
   }
-  /* JYANA — traditional house / wood interior */
   .prop-jyana .prop-bg {
-    background-image: url('https://images.unsplash.com/photo-1564979268369-42032c5ca998?w=960&auto=format&fit=crop&q=80');
-    background-color: #1a2e20;
+    background-image: url('https://images.unsplash.com/photo-1564979268369-42032c5ca998?w=960&auto=format&fit=crop&q=80') !important;
+    background-color: #1a2e20; opacity: 1 !important;
   }
-  /* MIYAKO — turquoise ocean Miyako Blue */
   .prop-miyako .prop-bg {
-    background-image: url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=960&auto=format&fit=crop&q=80');
-    background-color: #1a3550;
+    background-image: url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=960&auto=format&fit=crop&q=80') !important;
+    background-color: #1a3550; opacity: 1 !important;
   }
 
   .prop-gradient {
@@ -800,20 +797,14 @@
 <nav class="topnav" id="topNav">
   <a href="index.html" class="nav-logo">SGH Resorts</a>
   <div class="nav-links">
-    <a href="index.html">Top</a>
-    <a href="about.html">About</a>
-    <div class="nav-dropdown">
-      <span class="nav-dropdown-trigger">Collections</span>
-      <div class="nav-dropdown-menu">
-        <a href="okinawa.html">沖縄 — JYANA / URUMA</a>
-        <a href="miyako.html">宮古島 — Miyako House</a>
-        <a href="hakone.html">箱根 — wabi-sabi</a>
-        <a href="https://www.localtimevillage.com" target="_blank">Cambodia — Local Time Village ↗</a>
-      </div>
-    </div>
-    <a href="corporate.html">Corporate</a>
-    <a href="mailto:info@sghresorts.com">Contact</a>
-    <a href="news.html">News</a>
+    <a href="index.html">Top<span class="nav-sub">ホーム</span></a>
+    <a href="about.html">About<span class="nav-sub">SGH Resortsについて</span></a>
+    <a href="okinawa.html">沖縄<span class="nav-sub">Villa JYANA / URUMA DOME</span></a>
+    <a href="miyako.html">宮古島<span class="nav-sub">Miyako House</span></a>
+    <a href="hakone.html">箱根<span class="nav-sub">wabi-sabi</span></a>
+    <a href="corporate.html">Corporate<span class="nav-sub">法人・団体のご利用</span></a>
+    <a href="mailto:info@sghresorts.com">Contact<span class="nav-sub">お問い合わせ</span></a>
+    <a href="news.html">News<span class="nav-sub">お知らせ</span></a>
   </div>
   <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -1158,35 +1149,6 @@
   reveals.forEach(el => observer.observe(el));
 </script>
 
-<script>
-// Preload all background images and apply shimmer until loaded
-(function() {
-  const imgMap = {
-    '.hero-bg':          'https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=1800&auto=format&fit=crop&q=80',
-    '.card-retreat .brand-card-bg': 'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=1200&auto=format&fit=crop&q=80',
-    '.card-local .brand-card-bg':   'https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=1200&auto=format&fit=crop&q=80',
-
-    '.cambodia-photobg':    'https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=1600&auto=format&fit=crop&q=80',
-  };
-
-  Object.entries(imgMap).forEach(([selector, src]) => {
-    const el = document.querySelector(selector);
-    if (!el) return;
-    const img = new Image();
-    img.onload = () => {
-      el.style.backgroundImage = `url('${src}')`;
-      el.style.opacity = '1';
-    };
-    img.onerror = () => {
-      // Fallback: keep gradient bg, just remove shimmer
-      el.style.opacity = '1';
-    };
-    el.style.opacity = '0';
-    el.style.transition = 'opacity 0.6s ease';
-    img.src = src;
-  });
-})();
-</script>
 
 <script>
   const hamburger = document.getElementById('navHamburger');
