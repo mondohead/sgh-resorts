@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | SGH Resorts</title>
+<meta name="description" content="SGH Resortsについて。その土地の時間に入るための滞在拠点。沖縄・宮古島・箱根・カンボジア。">
+<link rel="canonical" href="https://sghresorts.com/about.html">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Shippori+Mincho:wght@400;500&family=DM+Sans:wght@300;400&family=Lora:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0e1a14; --forest: #1a2e20; --moss: #2d4a35; --fern: #3d6b48;
+    --sage: #f0f4ee; --warm: #e8ede4; --gold: #c4a84a;
+    --gold-light: #d4bc78; --muted: #6b7d6e; --white: #fafcf8;
+    --border: rgba(61,107,72,0.12);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--white);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav.topnav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 22px 48px;
+    transition: background 0.4s, backdrop-filter 0.4s;
+  }
+  nav.topnav.scrolled {
+    background: rgba(250,252,248,0.93);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--white); text-decoration: none; transition: color 0.3s;
+  }
+  nav.topnav.scrolled .nav-logo { color: var(--ink); }
+  .nav-links {
+    display: flex; align-items: center; gap: 24px;
+  }
+  .nav-links a {
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    text-decoration: none; color: rgba(255,255,255,0.6); transition: color 0.3s;
+  }
+  nav.topnav.scrolled .nav-links a { color: var(--muted); }
+  .nav-links a:hover { color: var(--gold-light); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--ink);
+    padding: 180px 48px 120px;
+    display: flex; flex-direction: column; align-items: flex-start;
+    max-width: 900px;
+  }
+  .hero-eyebrow {
+    font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 24px;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 7vw, 80px); font-weight: 300; line-height: 1.0;
+    color: var(--white); margin-bottom: 20px;
+  }
+  .hero-sub {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.9;
+  }
+
+  /* ── SECTIONS ── */
+  .about-section {
+    max-width: 720px;
+    padding: 96px 48px;
+    margin: 0 auto;
+  }
+  .about-label {
+    font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 28px;
+  }
+  .about-body {
+    font-size: 15px; line-height: 1.9; color: var(--ink);
+    margin-bottom: 28px;
+  }
+  .about-body-en {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px; font-style: italic; font-weight: 300;
+    line-height: 1.8; color: var(--muted);
+  }
+  .about-divider {
+    width: 100%; max-width: 720px;
+    height: 1px; background: var(--border);
+    margin: 0 auto;
+  }
+
+  /* ── CTA ── */
+  .about-cta {
+    max-width: 720px;
+    padding: 0 48px 96px;
+    margin: 0 auto;
+  }
+  .about-cta-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink); text-decoration: none;
+    border: 1px solid var(--border); padding: 14px 28px;
+    transition: all 0.3s;
+  }
+  .about-cta-btn:hover {
+    background: var(--ink); color: var(--white);
+    border-color: var(--ink);
+  }
+
+  /* ── HAMBURGER ── */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 301;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 1px;
+    background: var(--white);
+    transition: all 0.3s;
+  }
+  .nav-hamburger.open span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  .nav-hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-hamburger.open span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 960px) {
+    nav.topnav { padding: 18px 24px; }
+    .hero { padding: 140px 24px 80px; }
+    .about-section { padding: 64px 24px; }
+    .about-cta { padding: 0 24px 64px; }
+    .nav-links {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: var(--ink);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      z-index: 300;
+    }
+    .nav-links.open {
+      display: flex;
+    }
+    .nav-links a {
+      font-size: 22px;
+      letter-spacing: 0.12em;
+      color: var(--white);
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+    }
+    .nav-hamburger {
+      display: flex;
+    }
+  }
+
+  /* ── FOOTER ── */
+  .site-footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.06); }
+  .footer-inner {
+    display: grid; grid-template-columns: 1.5fr 1fr 1.2fr;
+    gap: 56px; max-width: 1200px; margin: 0 auto; padding: 80px 48px 64px;
+  }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 18px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--white); margin-bottom: 14px; }
+  .footer-tagline { font-family: 'Cormorant Garamond', serif; font-size: 14px; font-style: italic; font-weight: 300; color: var(--gold-light); margin-bottom: 16px; letter-spacing: 0.04em; }
+  .footer-sub { font-size: 12px; line-height: 1.9; color: rgba(255,255,255,0.32); margin-bottom: 28px; }
+  .footer-social { display: flex; flex-direction: column; gap: 10px; }
+  .footer-social-link { display: inline-flex; align-items: center; gap: 8px; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.3s; }
+  .footer-social-link:hover { color: var(--gold-light); }
+  .footer-col-label { font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 20px; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .footer-links a { font-size: 12px; color: rgba(255,255,255,0.42); text-decoration: none; transition: color 0.3s; letter-spacing: 0.04em; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-link-dim { opacity: 0.6; }
+  .footer-badge { display: inline-block; font-size: 8px; letter-spacing: 0.12em; background: rgba(196,168,74,0.15); color: var(--gold-light); padding: 2px 7px; border-radius: 10px; margin-left: 6px; vertical-align: middle; }
+  .footer-contact-body { font-size: 12px; line-height: 1.9; color: rgba(255,255,255,0.32); margin-bottom: 20px; }
+  .footer-contact-btn { display: block; font-size: 11px; letter-spacing: 0.1em; color: var(--white); text-decoration: none; border: 1px solid rgba(255,255,255,0.14); padding: 12px 16px; text-align: center; transition: all 0.3s; margin-bottom: 16px; }
+  .footer-contact-btn:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.3); }
+  .footer-contact-note { font-size: 10px; color: rgba(255,255,255,0.22); line-height: 1.8; letter-spacing: 0.04em; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; padding: 20px 48px; }
+  .footer-copy { font-size: 10px; color: rgba(255,255,255,0.18); letter-spacing: 0.06em; }
+  .footer-bottom-links { display: flex; gap: 24px; }
+  .footer-bottom-links a { font-size: 10px; color: rgba(255,255,255,0.18); text-decoration: none; letter-spacing: 0.06em; transition: color 0.3s; }
+  .footer-bottom-links a:hover { color: rgba(255,255,255,0.5); }
+  @media (max-width: 960px) {
+    .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; padding: 60px 24px 48px; }
+    .footer-brand { grid-column: 1 / -1; }
+    .footer-bottom { padding: 18px 24px; flex-direction: column; gap: 10px; text-align: center; }
+  }
+  @media (max-width: 640px) { .footer-inner { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="topnav" id="topNav">
+  <a href="index.html" class="nav-logo">SGH Resorts</a>
+  <div class="nav-links">
+    <a href="okinawa.html">沖縄</a>
+    <a href="miyako.html">宮古島</a>
+    <a href="hakone.html">箱根</a>
+    <a href="corporate.html">法人・団体</a>
+    <a href="https://www.localtimevillage.com" target="_blank">Cambodia ↗</a>
+  </div>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <p class="hero-eyebrow">About SGH Resorts</p>
+  <h1 class="hero-title">Stay in local time.</h1>
+  <p class="hero-sub">時間の流れに、合わせる。</p>
+</section>
+
+<!-- ── SECTION 1: 定義 ── -->
+<section class="about-section">
+  <p class="about-label">What we are</p>
+  <p class="about-body">
+    SGH Resortsは、ホテルチェーンではない。
+  </p>
+  <p class="about-body">
+    T2が各地で見つけた「その土地の時間に入れる場所」を、滞在できる形に整えていくプロジェクトだ。施設の形は問わない。一棟貸しのヴィラでも、街の中のホテルでも、山の中のリトリートでも。共通しているのは、観光のためではなく、その土地の時間感覚の中に入るための拠点であること。
+  </p>
+  <p class="about-body-en">
+    SGH Resorts is not a hotel chain. It's a project —<br>
+    finding places where time moves differently,<br>
+    and making them available to stay.
+  </p>
+</section>
+
+<div class="about-divider"></div>
+
+<!-- ── SECTION 2: 原点と進化 ── -->
+<section class="about-section">
+  <p class="about-label">Origin</p>
+  <p class="about-body">
+    最初の場所は、カンボジアだった。
+  </p>
+  <p class="about-body">
+    シェムリアップの住宅街の一角に、9つの部屋と母屋を持つ小さなホテルを開いた。観光地の中心ではなく、人が暮らすエリアの中に。それがLocal Time Villageの始まりであり、SGHのすべての起点になっている。
+  </p>
+  <p class="about-body">
+    コロナ禍を経て、シェムリアップへの観光客はまだ完全には戻っていない。その時間を使って、Local Time Villageは変わろうとしている。
+  </p>
+  <p class="about-body">
+    宿泊だけではなく、長期滞在、ローカルツアー、食事、仕事。ジム、マッサージ、カフェ、コンテナバー。ただ泊まるだけではなく、一日中そこにいたくなる場所へ。次に人が戻ってきたとき、ここは「ただのホテル」ではなくなっている。
+  </p>
+  <p class="about-body-en">
+    The Local Time Village is being reimagined —<br>
+    a base to live, work, and experience the rhythm of Siem Reap.
+  </p>
+</section>
+
+<div class="about-divider"></div>
+
+<!-- ── SECTION 3: 選ぶ基準 ── -->
+<section class="about-section">
+  <p class="about-label">How we choose</p>
+  <p class="about-body">
+    場所を選ぶとき、いつも同じことを考える。
+  </p>
+  <p class="about-body">
+    「ここに泊まったら、地元の人の日常に触れられるか。」「観光地を巡る旅ではなく、その土地の時間の流れに入れるか。」それだけだ。建物が豪華かどうかは関係ない。その場所でしか起きない時間があるかどうか。
+  </p>
+  <p class="about-body">
+    沖縄の古民家の縁側から見える夕暮れ。宮古島の朝、窓を開けたら海の匂い。箱根の山の中の静けさ。カンボジアの路地の空気。どれも、どこかのホテルでは代替できない。
+  </p>
+</section>
+
+<div class="about-divider"></div>
+
+<!-- ── SECTION 4: これから ── -->
+<section class="about-section">
+  <p class="about-label">What's next</p>
+  <p class="about-body">
+    まだ、終わっていない。
+  </p>
+  <p class="about-body">
+    今は5つの拠点がある。次の場所を、いつも探している。条件はシンプルで、その土地の時間に入れる場所であること。日本国内でも、海外でも。それぞれの場所で、そこにしかない滞在のかたちを作っていく。
+  </p>
+  <p class="about-body-en">
+    We're always looking for the next place<br>
+    where time moves differently.
+  </p>
+</section>
+
+<div class="about-divider"></div>
+
+<!-- ── SECTION 5: 法人・チームへ ── -->
+<section class="about-section">
+  <p class="about-label">For teams & corporate</p>
+  <p class="about-body">
+    SGHの拠点は、個人の旅だけでなく、チームや法人にも開いている。完全貸切の空間で、オフィスとは違う場所で話す時間が、チームに何かをもたらすことを、私たちは何度も見てきた。沖縄・宮古島・箱根・カンボジア、複数の拠点を組み合わせた法人プランも相談できる。
+  </p>
+</section>
+
+<div class="about-cta">
+  <a href="corporate.html" class="about-cta-btn">法人・団体のご相談 →</a>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <p class="footer-logo">SGH Resorts</p>
+      <p class="footer-tagline">Stay where time moves differently.</p>
+      <p class="footer-sub">沖縄・宮古島・箱根・カンボジア。<br>一棟、または一室から。</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/sghresorts" target="_blank" class="footer-social-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          @sghresorts
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-label">Properties</p>
+      <ul class="footer-links">
+        <li><a href="okinawa.html">沖縄 — Villa JYANA</a></li>
+        <li><a href="okinawa.html#uruma">沖縄 — URUMA DOME</a></li>
+        <li><a href="miyako.html">宮古島 — Miyako House</a></li>
+        <li><a href="hakone.html" class="footer-link-dim">箱根 — wabi-sabi <span class="footer-badge">近日公開</span></a></li>
+        <li><a href="https://www.localtimevillage.com" target="_blank">Cambodia — Local Time Village ↗</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-label">Contact</p>
+      <p class="footer-contact-body">法人・団体でのご利用、複数施設の一括手配、その他お問い合わせはメールまたはDMにてお気軽にどうぞ。</p>
+      <a href="mailto:info@sghresorts.com" class="footer-contact-btn">info@sghresorts.com</a>
+      <p class="footer-contact-note">法人・団体のご相談歓迎<br>研修 / インセンティブ / 福利厚生</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 SGH Resorts. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="tokutei.html">特定商取引法</a>
+      <a href="news.html">お知らせ</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const topNav = document.getElementById('topNav');
+  window.addEventListener('scroll', () => {
+    topNav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  const hamburger = document.getElementById('navHamburger');
+  const navLinks = document.querySelector('.nav-links');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        navLinks.classList.remove('open');
+      });
+    });
+  }
+</script>
+</body>
+</html>
