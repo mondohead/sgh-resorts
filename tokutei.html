@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>特定商取引法に基づく表記 | SGH Resorts</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=DM+Sans:wght@300;400&family=Lora:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root { --ink: #0e1a14; --fern: #3d6b48; --warm: #e8ede4; --muted: #6b7d6e; --white: #fafcf8; --gold-light: #d4bc78; --footer-h: 60px; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--white); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; padding-bottom: var(--footer-h); }
+  nav.topnav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; justify-content: space-between; align-items: center; padding: 22px 48px; background: var(--ink); }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 15px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); text-decoration: none; }
+  .nav-back { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; color: rgba(255,255,255,0.5); }
+  .nav-back:hover { color: var(--gold-light); }
+  .page-header { background: var(--ink); padding: 140px 48px 64px; }
+  .page-header-label { font-size: 9px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 12px; }
+  .page-header-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(26px, 3.5vw, 42px); font-weight: 300; color: var(--white); }
+  .content { max-width: 720px; margin: 0 auto; padding: 80px 48px; }
+  .updated { font-size: 11px; color: var(--muted); margin-bottom: 40px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  tr { border-bottom: 1px solid var(--warm); }
+  th { text-align: left; padding: 18px 20px 18px 0; font-size: 11px; font-weight: 400; color: var(--muted); width: 180px; vertical-align: top; letter-spacing: 0.04em; }
+  td { padding: 18px 0; line-height: 1.9; color: var(--ink); font-size: 13px; }
+  td a { color: var(--fern); }
+  nav.bottomnav { position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; height: var(--footer-h); background: var(--ink); display: flex; align-items: center; justify-content: space-between; padding: 0 48px; border-top: 1px solid rgba(255,255,255,0.07); }
+  .bottomnav-center { display: flex; gap: 28px; }
+  .bottomnav-center a { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.38); text-decoration: none; }
+  @media (max-width: 768px) { nav.topnav, nav.bottomnav { padding: 18px 24px; } .page-header { padding: 110px 24px 48px; } .content { padding: 60px 24px; } th { width: 120px; } }
+
+  /* ════════════════════════════
+     SITE FOOTER
+  ════════════════════════════ */
+  .site-footer {
+    background: var(--ink);
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .footer-inner {
+    display: grid; grid-template-columns: 1.5fr 1fr 1.2fr;
+    gap: 56px; max-width: 1200px; margin: 0 auto; padding: 80px 48px 64px;
+  }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 18px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--white); margin-bottom: 14px; }
+  .footer-tagline { font-family: 'Cormorant Garamond', serif; font-size: 14px; font-style: italic; font-weight: 300; color: var(--gold-light); margin-bottom: 16px; letter-spacing: 0.04em; }
+  .footer-sub { font-size: 12px; line-height: 1.9; color: rgba(255,255,255,0.32); margin-bottom: 28px; }
+  .footer-social { display: flex; flex-direction: column; gap: 10px; }
+  .footer-social-link { display: inline-flex; align-items: center; gap: 8px; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.3s; }
+  .footer-social-link:hover { color: var(--gold-light); }
+  .footer-col-label { font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 20px; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .footer-links a { font-size: 12px; color: rgba(255,255,255,0.42); text-decoration: none; transition: color 0.3s; letter-spacing: 0.04em; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-link-dim { opacity: 0.6; }
+  .footer-badge { display: inline-block; font-size: 8px; letter-spacing: 0.12em; background: rgba(196,168,74,0.15); color: var(--gold-light); padding: 2px 7px; border-radius: 10px; margin-left: 6px; vertical-align: middle; }
+  .footer-contact-body { font-size: 12px; line-height: 1.9; color: rgba(255,255,255,0.32); margin-bottom: 20px; }
+  .footer-contact-btn { display: block; font-size: 11px; letter-spacing: 0.1em; color: var(--white); text-decoration: none; border: 1px solid rgba(255,255,255,0.14); padding: 12px 16px; text-align: center; transition: all 0.3s; margin-bottom: 16px; }
+  .footer-contact-btn:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.3); }
+  .footer-contact-note { font-size: 10px; color: rgba(255,255,255,0.22); line-height: 1.8; letter-spacing: 0.04em; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; padding: 20px 48px; }
+  .footer-copy { font-size: 10px; color: rgba(255,255,255,0.18); letter-spacing: 0.06em; }
+  .footer-bottom-links { display: flex; gap: 24px; }
+  .footer-bottom-links a { font-size: 10px; color: rgba(255,255,255,0.18); text-decoration: none; letter-spacing: 0.06em; transition: color 0.3s; }
+  .footer-bottom-links a:hover { color: rgba(255,255,255,0.5); }
+  @media (max-width: 960px) {
+    .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; padding: 60px 24px 48px; }
+    .footer-brand { grid-column: 1 / -1; }
+    .footer-bottom { padding: 18px 24px; flex-direction: column; gap: 10px; text-align: center; }
+  }
+  @media (max-width: 640px) { .footer-inner { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <a href="sgh-final.html" class="nav-logo">SGH Resorts</a>
+  <a href="sgh-final.html" class="nav-back">← Top</a>
+</nav>
+
+<div class="page-header">
+  <p class="page-header-label">Legal</p>
+  <h1 class="page-header-title">特定商取引法に基づく表記</h1>
+</div>
+
+<div class="content">
+  <p class="updated">最終更新日：2026年4月5日</p>
+  <table>
+    <tr>
+      <th>事業者名</th>
+      <td>SGH Resorts<br><span style="font-size:12px; color:var(--muted);">（運営会社は別途お問い合わせください）</span></td>
+    </tr>
+    <tr>
+      <th>所在地</th>
+      <td>お問い合わせいただいた場合、遅滞なく開示します。</td>
+    </tr>
+    <tr>
+      <th>連絡先</th>
+      <td>
+        Email：<a href="mailto:info@sghresorts.com">info@sghresorts.com</a><br>
+        Instagram：<a href="https://www.instagram.com/sghresorts" target="_blank">@sghresorts</a><br>
+        <span style="font-size:12px; color:var(--muted);">電話番号はお問い合わせ後にお伝えします。</span>
+      </td>
+    </tr>
+    <tr>
+      <th>サービス内容</th>
+      <td>民泊・宿泊施設の仲介・紹介。Airbnb / Booking.com 等を通じた宿泊予約のご案内。法人・団体向け貸切宿泊のコーディネート。</td>
+    </tr>
+    <tr>
+      <th>料金</th>
+      <td>各施設ページおよびAirbnb / Booking.comのページに記載の通り。料金は季節・日程・人数により変動します。</td>
+    </tr>
+    <tr>
+      <th>追加費用</th>
+      <td>清掃費・サービス料等は各予約プラットフォームの表示に準じます。</td>
+    </tr>
+    <tr>
+      <th>支払方法</th>
+      <td>Airbnb / Booking.com 等の予約プラットフォームに準じます。法人直接予約の場合は銀行振込（請求書払い）。</td>
+    </tr>
+    <tr>
+      <th>支払時期</th>
+      <td>各予約プラットフォームのポリシーに準じます。直接予約の場合は請求書記載の期日までにお支払いください。</td>
+    </tr>
+    <tr>
+      <th>キャンセルポリシー</th>
+      <td>Airbnb / Booking.com 経由のご予約は各プラットフォームのキャンセルポリシーに準じます。直接予約の場合は別途ご案内します。</td>
+    </tr>
+    <tr>
+      <th>サービス提供時期</th>
+      <td>ご予約確定後、指定のチェックイン日よりサービスを提供します。</td>
+    </tr>
+  </table>
+</div>
+
+
+<!-- ── SITE FOOTER ── -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <p class="footer-logo">SGH Resorts</p>
+      <p class="footer-tagline">Stay where time moves differently.</p>
+      <p class="footer-sub">沖縄・宮古島・箱根・カンボジア。<br>一棟、または一室から。</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/sghresorts" target="_blank" class="footer-social-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          @sghresorts
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-label">Properties</p>
+      <ul class="footer-links">
+        <li><a href="okinawa.html">沖縄 — Villa JYANA</a></li>
+        <li><a href="okinawa.html#uruma">沖縄 — URUMA DOME</a></li>
+        <li><a href="miyako.html">宮古島 — Miyako House</a></li>
+        <li><a href="hakone.html" class="footer-link-dim">箱根 — wabi-sabi <span class="footer-badge">近日公開</span></a></li>
+        <li><a href="https://www.localtimevillage.com" target="_blank">Cambodia — Local Time Village ↗</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-label">Contact</p>
+      <p class="footer-contact-body">法人・団体でのご利用、複数施設の一括手配、その他お問い合わせはメールまたはDMにてお気軽にどうぞ。</p>
+      <a href="mailto:info@sghresorts.com" class="footer-contact-btn">info@sghresorts.com</a>
+      <p class="footer-contact-note">法人・団体のご相談歓迎<br>研修 / インセンティブ / 福利厚生</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 SGH Resorts. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="tokutei.html">特定商取引法</a>
+      <a href="news.html">お知らせ</a>
+    </div>
+  </div>
+</footer>
+
+<nav class="bottomnav">
+  <div class="bottomnav-center">
+    <a href="sgh-final.html">← Top</a>
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="mailto:info@sghresorts.com">Contact</a>
+  </div>
+</nav>
+</body>
+</html>

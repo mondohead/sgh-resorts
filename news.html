@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>お知らせ | SGH Resorts</title>
+<meta name="description" content="SGH Resortsからのお知らせ。施設情報・メンテナンス・新着情報など。">
+<link rel="canonical" href="https://sghresorts.com/news.html">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400&family=Lora:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0e1a14; --forest: #1a2e20; --fern: #3d6b48;
+    --sage: #f0f4ee; --warm: #e8ede4; --gold: #c4a84a;
+    --gold-light: #d4bc78; --muted: #6b7d6e; --white: #fafcf8;
+    --footer-h: 60px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--white); color: var(--ink); font-family: 'DM Sans', sans-serif; font-weight: 300; }
+
+  nav.topnav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 22px 48px; background: var(--ink);
+  }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 15px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white); text-decoration: none; }
+  .nav-back { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; color: rgba(255,255,255,0.5); transition: color 0.3s; }
+  .nav-back:hover { color: var(--gold-light); }
+
+  .page-header {
+    background: var(--ink); padding: 140px 48px 72px;
+  }
+  .page-header-label { font-size: 9px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 14px; }
+  .page-header-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5vw, 60px); font-weight: 300; color: var(--white); }
+
+  .news-list { max-width: 800px; margin: 0 auto; padding: 80px 48px; }
+
+  /* ═══════════════════════════════════════════
+     記事の追加方法：
+     下のブロックをコピーして、リストの一番上に貼る。
+     日付・カテゴリ・タイトル・本文を書き換えるだけ。
+  ═══════════════════════════════════════════ */
+
+  .news-item { border-top: 1px solid var(--warm); padding: 36px 0; }
+  .news-item:last-child { border-bottom: 1px solid var(--warm); }
+  .news-meta { display: flex; align-items: center; gap: 16px; margin-bottom: 12px; }
+  .news-date { font-size: 11px; color: var(--muted); letter-spacing: 0.08em; }
+  .news-cat {
+    font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 20px; border: 1px solid;
+  }
+  .news-cat.info { border-color: rgba(61,107,72,0.3); color: var(--fern); }
+  .news-cat.maintenance { border-color: rgba(196,168,74,0.3); color: var(--gold); }
+  .news-cat.new { border-color: rgba(14,26,20,0.3); color: var(--ink); }
+  .news-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: var(--ink); margin-bottom: 10px; line-height: 1.3; }
+  .news-body { font-size: 13px; line-height: 1.95; color: var(--muted); }
+  .news-body a { color: var(--fern); text-decoration: underline; }
+
+  nav.bottomnav {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+    height: var(--footer-h); background: var(--ink);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px; border-top: 1px solid rgba(255,255,255,0.07);
+  }
+  .bottomnav-left { font-family: 'Cormorant Garamond', serif; font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+  .bottomnav-left span { color: rgba(255,255,255,0.2); margin: 0 10px; }
+  .bottomnav-center { display: flex; gap: 28px; }
+  .bottomnav-center a { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.38); text-decoration: none; transition: color 0.3s; }
+  .bottomnav-center a:hover { color: var(--gold-light); }
+
+  /* SITE FOOTER */
+  .site-footer{background:var(--ink);border-top:1px solid rgba(255,255,255,0.06)}
+  .footer-inner{display:grid;grid-template-columns:1.5fr 1fr 1.2fr;gap:56px;max-width:1200px;margin:0 auto;padding:80px 48px 64px}
+  .footer-logo{font-family:"Cormorant Garamond",serif;font-size:18px;letter-spacing:0.22em;text-transform:uppercase;color:var(--white);margin-bottom:14px}
+  .footer-tagline{font-family:"Cormorant Garamond",serif;font-size:14px;font-style:italic;font-weight:300;color:var(--gold-light);margin-bottom:16px}
+  .footer-sub{font-size:12px;line-height:1.9;color:rgba(255,255,255,0.32);margin-bottom:28px}
+  .footer-social{display:flex;flex-direction:column;gap:10px}
+  .footer-social-link{display:inline-flex;align-items:center;gap:8px;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.3s}
+  .footer-social-link:hover{color:var(--gold-light)}
+  .footer-col-label{font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold-light);margin-bottom:20px}
+  .footer-links{list-style:none;display:flex;flex-direction:column;gap:12px}
+  .footer-links a{font-size:12px;color:rgba(255,255,255,0.42);text-decoration:none;transition:color 0.3s}
+  .footer-links a:hover{color:var(--white)}
+  .footer-link-dim{opacity:0.6}
+  .footer-badge{display:inline-block;font-size:8px;letter-spacing:0.12em;background:rgba(196,168,74,0.15);color:var(--gold-light);padding:2px 7px;border-radius:10px;margin-left:6px;vertical-align:middle}
+  .footer-contact-body{font-size:12px;line-height:1.9;color:rgba(255,255,255,0.32);margin-bottom:20px}
+  .footer-contact-btn{display:block;font-size:11px;color:var(--white);text-decoration:none;border:1px solid rgba(255,255,255,0.14);padding:12px 16px;text-align:center;transition:all 0.3s;margin-bottom:16px}
+  .footer-contact-btn:hover{background:rgba(255,255,255,0.06)}
+  .footer-contact-note{font-size:10px;color:rgba(255,255,255,0.22);line-height:1.8}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;padding:20px 48px}
+  .footer-copy{font-size:10px;color:rgba(255,255,255,0.18);letter-spacing:0.06em}
+  .footer-bottom-links{display:flex;gap:24px}
+  .footer-bottom-links a{font-size:10px;color:rgba(255,255,255,0.18);text-decoration:none;transition:color 0.3s}
+  .footer-bottom-links a:hover{color:rgba(255,255,255,0.5)}
+  @media(max-width:960px){.footer-inner{grid-template-columns:1fr 1fr;gap:40px;padding:60px 24px 48px}.footer-brand{grid-column:1/-1}.footer-bottom{padding:18px 24px;flex-direction:column;gap:10px;text-align:center}}
+  @media(max-width:640px){.footer-inner{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="sgh-final.html" class="nav-logo">SGH Resorts</a>
+  <a href="sgh-final.html" class="nav-back">← Top</a>
+</nav>
+
+<div class="page-header">
+  <p class="page-header-label">News</p>
+  <h1 class="page-header-title">お知らせ</h1>
+</div>
+
+<div class="news-list">
+
+  <!--
+  ═══════════════════════════════════════════
+  【新しい記事を追加するとき】
+  この↓ブロックをコピーして上に追加する。
+  cat のクラスは info / maintenance / new の3種類。
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="news-date">2026.xx.xx</span>
+      <span class="news-cat info">お知らせ</span>
+    </div>
+    <h2 class="news-title">タイトルをここに</h2>
+    <p class="news-body">
+      本文をここに。複数の段落は<br>で改行するか、
+      &lt;p&gt;タグを複数並べてもいい。
+    </p>
+  </div>
+  ═══════════════════════════════════════════
+  -->
+
+  <!-- ここから記事 ↓ -->
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="news-date">2026.04.05</span>
+      <span class="news-cat new">新着</span>
+    </div>
+    <h2 class="news-title">SGH Resortsウェブサイトをリニューアルしました</h2>
+    <p class="news-body">
+      沖縄・宮古島・箱根・カンボジアの各施設ページと、法人・団体向けページを新設しました。引き続きよろしくお願いします。
+    </p>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="news-date">2026.04.05</span>
+      <span class="news-cat info">施設情報</span>
+    </div>
+    <h2 class="news-title">箱根 wabi-sabi — 近日公開予定</h2>
+    <p class="news-body">
+      箱根のプライベートリトリート「wabi-sabi」は現在準備中です。公開通知のご登録は<a href="hakone.html">箱根ページ</a>よりお願いします。
+    </p>
+  </div>
+
+  <!-- ここまで記事 ↑ -->
+
+</div>
+
+
+<!-- ── SITE FOOTER ── -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <p class="footer-logo">SGH Resorts</p>
+      <p class="footer-tagline">Stay where time moves differently.</p>
+      <p class="footer-sub">沖縄・宮古島・箱根・カンボジア。<br>一棟、または一室から。</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/sghresorts" target="_blank" class="footer-social-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          @sghresorts
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-label">Properties</p>
+      <ul class="footer-links">
+        <li><a href="okinawa.html">沖縄 — Villa JYANA</a></li>
+        <li><a href="okinawa.html#uruma">沖縄 — URUMA DOME</a></li>
+        <li><a href="miyako.html">宮古島 — Miyako House</a></li>
+        <li><a href="hakone.html" class="footer-link-dim">箱根 — wabi-sabi <span class="footer-badge">近日公開</span></a></li>
+        <li><a href="https://www.localtimevillage.com" target="_blank">Cambodia — Local Time Village ↗</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-label">Contact</p>
+      <p class="footer-contact-body">法人・団体でのご利用、複数施設の一括手配、その他お問い合わせはメールまたはDMにてお気軽にどうぞ。</p>
+      <a href="mailto:info@sghresorts.com" class="footer-contact-btn">info@sghresorts.com</a>
+      <p class="footer-contact-note">法人・団体のご相談歓迎<br>研修 / インセンティブ / 福利厚生</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 SGH Resorts. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="tokutei.html">特定商取引法</a>
+      <a href="news.html">お知らせ</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
