@@ -32,6 +32,30 @@
   }
   nav.topnav.scrolled .nav-links a { color: var(--muted); }
   .nav-links a:hover { color: var(--gold-light); }
+  .nav-dropdown { position: relative; }
+  .nav-dropdown-trigger {
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(255,255,255,0.6); cursor: pointer; transition: color 0.3s;
+  }
+  .nav-dropdown:hover .nav-dropdown-trigger { color: var(--gold-light); }
+  .nav-dropdown-menu {
+    display: none;
+    position: absolute; top: calc(100% + 16px); left: 50%;
+    transform: translateX(-50%);
+    background: var(--ink);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 16px 0; min-width: 220px;
+    z-index: 400;
+  }
+  .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+  .nav-dropdown-menu a {
+    display: block;
+    font-size: 11px; letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.6); text-decoration: none;
+    padding: 10px 24px; transition: color 0.3s;
+  }
+  .nav-dropdown-menu a:hover { color: var(--white); }
+  nav.topnav.scrolled .nav-dropdown-trigger { color: var(--muted); }
 
   .page-header {
     background: var(--ink); padding: 140px 48px 72px;
@@ -138,6 +162,26 @@
     .nav-hamburger {
       display: flex;
     }
+    .nav-dropdown { width: 100%; text-align: center; }
+    .nav-dropdown-trigger {
+      font-size: 22px; letter-spacing: 0.12em;
+      color: var(--white);
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+    }
+    .nav-dropdown-menu {
+      position: static; background: none; border: none;
+      transform: none; min-width: auto;
+      padding: 8px 0 8px 16px;
+      display: none;
+    }
+    .nav-dropdown-menu.open { display: block; }
+    .nav-dropdown-menu a {
+      font-size: 16px; padding: 8px 0;
+      color: rgba(255,255,255,0.5);
+    }
+    .nav-dropdown:hover .nav-dropdown-menu { display: none; }
+    .nav-dropdown-menu.open { display: block !important; }
   }
   @media(max-width:960px){.footer-inner{grid-template-columns:1fr 1fr;gap:40px;padding:60px 24px 48px}.footer-brand{grid-column:1/-1}.footer-bottom{padding:18px 24px;flex-direction:column;gap:10px;text-align:center}}
   @media(max-width:640px){.footer-inner{grid-template-columns:1fr}}
@@ -148,12 +192,20 @@
 <nav class="topnav" id="topNav">
   <a href="index.html" class="nav-logo">SGH Resorts</a>
   <div class="nav-links">
+    <a href="index.html">Top</a>
     <a href="about.html">About</a>
-    <a href="okinawa.html">沖縄</a>
-    <a href="miyako.html">宮古島</a>
-    <a href="hakone.html">箱根</a>
-    <a href="corporate.html">法人・団体</a>
-    <a href="https://www.localtimevillage.com" target="_blank">Cambodia ↗</a>
+    <div class="nav-dropdown">
+      <span class="nav-dropdown-trigger">Collections</span>
+      <div class="nav-dropdown-menu">
+        <a href="okinawa.html">沖縄 — JYANA / URUMA</a>
+        <a href="miyako.html">宮古島 — Miyako House</a>
+        <a href="hakone.html">箱根 — wabi-sabi</a>
+        <a href="https://www.localtimevillage.com" target="_blank">Cambodia — Local Time Village ↗</a>
+      </div>
+    </div>
+    <a href="corporate.html">Corporate</a>
+    <a href="mailto:info@sghresorts.com">Contact</a>
+    <a href="news.html">News</a>
   </div>
   <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
     <span></span>
@@ -262,6 +314,8 @@
 <script>
   const hamburger = document.getElementById('navHamburger');
   const navLinks = document.querySelector('.nav-links');
+  const dropdownTrigger = document.querySelector('.nav-dropdown-trigger');
+  const dropdownMenu = document.querySelector('.nav-dropdown-menu');
   if (hamburger && navLinks) {
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('open');
@@ -272,6 +326,12 @@
         hamburger.classList.remove('open');
         navLinks.classList.remove('open');
       });
+    });
+  }
+  if (dropdownTrigger && dropdownMenu) {
+    dropdownTrigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dropdownMenu.classList.toggle('open');
     });
   }
 </script>
