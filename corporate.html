@@ -279,22 +279,30 @@
   .facility-note { font-size: 12px; color: rgba(255,255,255,0.38); line-height: 1.7; }
   .facility-card-coming {
     background: var(--sage);
+    background-image: url('https://images.unsplash.com/photo-1672594859456-50b7dc769a69?w=960&auto=format&fit=crop&q=80');
+    background-size: cover; background-position: center;
     display: flex; flex-direction: column; justify-content: center;
     align-items: flex-start; padding: 36px;
-    border: 1px solid var(--warm);
+    position: relative;
+    border: 1px solid var(--warm); overflow: hidden;
   }
+  .facility-card-coming::before {
+    content: ''; position: absolute; inset: 0;
+    background: rgba(14,26,20,0.7);
+  }
+  .facility-card-coming > * { position: relative; z-index: 1; }
   .coming-badge {
     font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--gold); border: 1px solid rgba(196,168,74,0.3);
+    color: var(--gold-light); border: 1px solid rgba(212,188,120,0.4);
     padding: 4px 10px; border-radius: 20px; margin-bottom: 20px;
   }
   .coming-name {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 28px; font-weight: 300; color: var(--ink);
+    font-size: 28px; font-weight: 300; color: var(--white);
     margin-bottom: 8px;
   }
-  .coming-area { font-size: 11px; color: var(--muted); margin-bottom: 16px; }
-  .coming-body { font-size: 13px; line-height: 1.8; color: var(--muted); }
+  .coming-area { font-size: 11px; color: rgba(255,255,255,0.5); margin-bottom: 16px; }
+  .coming-body { font-size: 13px; line-height: 1.8; color: rgba(255,255,255,0.5); }
 
   /* ── WHAT'S INCLUDED ── */
   .included-section { background: var(--sage); padding: 96px 48px; }
@@ -767,9 +775,9 @@
         <p class="coming-area">箱根 / Hakone, Kanagawa</p>
         <p class="coming-body" style="margin-bottom:16px;">Comfortable 6名 / Max 10名。山の静けさの中に、一棟まるごとのリトリート。温泉・森・ワーケーション・静かな合宿に。東京から1時間。</p>
         <div class="facility-specs" style="display:flex; flex-wrap:wrap; gap:7px;">
-          <span class="facility-spec" style="border-color:rgba(61,107,72,0.25); color:var(--fern);">Comfortable 6名</span>
-          <span class="facility-spec" style="border-color:rgba(61,107,72,0.25); color:var(--fern);">Max 10名</span>
-          <span class="facility-spec" style="border-color:rgba(61,107,72,0.25); color:var(--fern);">1棟貸切</span>
+          <span class="facility-spec" style="border-color:rgba(255,255,255,0.2); color:rgba(255,255,255,0.5);">Comfortable 6名</span>
+          <span class="facility-spec" style="border-color:rgba(255,255,255,0.2); color:rgba(255,255,255,0.5);">Max 10名</span>
+          <span class="facility-spec" style="border-color:rgba(255,255,255,0.2); color:rgba(255,255,255,0.5);">1棟貸切</span>
         </div>
       </div>
 
