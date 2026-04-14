@@ -1111,35 +1111,6 @@
   reveals.forEach(el => observer.observe(el));
 </script>
 
-<script>
-// Preload all background images and apply shimmer until loaded
-(function() {
-  const imgMap = {
-    '.hero-bg':          'https://images.unsplash.com/photo-1559827291-72ee739d0d9a?w=1800&auto=format&fit=crop&q=80',
-    '.card-retreat .brand-card-bg': 'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=1200&auto=format&fit=crop&q=80',
-    '.card-local .brand-card-bg':   'https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=1200&auto=format&fit=crop&q=80',
-
-    '.cambodia-photobg':    'https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=1600&auto=format&fit=crop&q=80',
-  };
-
-  Object.entries(imgMap).forEach(([selector, src]) => {
-    const el = document.querySelector(selector);
-    if (!el) return;
-    const img = new Image();
-    img.onload = () => {
-      el.style.backgroundImage = `url('${src}')`;
-      el.style.opacity = '1';
-    };
-    img.onerror = () => {
-      // Fallback: keep gradient bg, just remove shimmer
-      el.style.opacity = '1';
-    };
-    el.style.opacity = '0';
-    el.style.transition = 'opacity 0.6s ease';
-    img.src = src;
-  });
-})();
-</script>
 
 <script>
   const hamburger = document.getElementById('navHamburger');
