@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cambodia — Local Time Village | SGH Resorts</title>
+<meta name="description" content="シェムリアップのローカルエリアに佇む小さなホテル、Local Time Village。SGH Resortsの原点。全館貸切で最大30名対応。">
+<link rel="canonical" href="https://sghresorts.com/cambodia.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cambodia — Local Time Village | SGH Resorts">
+<meta property="og:description" content="シェムリアップの住宅街に、私たちの原点がある。全館貸切で最大30名対応。">
+<meta property="og:image" content="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1800&auto=format&fit=crop&q=80">
+<meta property="og:url" content="https://sghresorts.com/cambodia.html">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Shippori+Mincho:wght@400;500&family=DM+Sans:wght@300;400&family=Lora:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0e1a14; --forest: #1a2e20; --moss: #2d4a35; --fern: #3d6b48;
+    --sage: #f0f4ee; --warm: #e8ede4; --gold: #c4a84a;
+    --gold-light: #d4bc78; --muted: #6b7d6e; --white: #fafcf8;
+    --border: rgba(61,107,72,0.12);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--white); color: var(--ink);
+    font-family: 'DM Sans', sans-serif; font-weight: 300; overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav.topnav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 22px 48px;
+    transition: background 0.4s, backdrop-filter 0.4s;
+  }
+  nav.topnav.scrolled {
+    background: rgba(250,252,248,0.93); backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--white); text-decoration: none; transition: color 0.3s;
+  }
+  nav.topnav.scrolled .nav-logo { color: var(--ink); }
+  .nav-links { display: flex; align-items: center; gap: 24px; }
+  .nav-links a {
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    text-decoration: none; color: rgba(255,255,255,0.6); transition: color 0.3s;
+  }
+  nav.topnav.scrolled .nav-links a { color: var(--muted); }
+  .nav-links a:hover { color: var(--gold-light); }
+  .nav-sub { display: none; }
+  .nav-dropdown { position: relative; display: inline-flex; align-items: center; vertical-align: middle; }
+  .nav-dropdown::after {
+    content: ''; position: absolute; top: 100%; left: 0; right: 0; height: 16px;
+  }
+  .nav-dropdown-trigger {
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(255,255,255,0.6); cursor: pointer; transition: color 0.3s; text-decoration: none;
+  }
+  .nav-dropdown-trigger:hover { color: var(--gold-light); }
+  nav.topnav.scrolled .nav-dropdown-trigger { color: var(--muted); }
+  .nav-dropdown-menu {
+    display: none; position: absolute; top: 100%; left: 50%;
+    transform: translateX(-50%); background: var(--ink);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 16px 0 12px; min-width: 240px; z-index: 400;
+  }
+  .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+  .nav-dropdown-menu a {
+    display: block; font-size: 11px; letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.6); text-decoration: none;
+    padding: 10px 24px; transition: color 0.3s; text-transform: none;
+  }
+  .nav-dropdown-menu a:hover { color: var(--white); }
+
+  /* ── HERO ── */
+  .hero {
+    height: 90vh; min-height: 600px; position: relative;
+    display: flex; align-items: flex-end; padding: 0 48px 100px; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1800&auto=format&fit=crop&q=80');
+    background-size: cover; background-position: center 40%;
+  }
+  .hero-bg::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      linear-gradient(to bottom, rgba(7,20,12,0.4) 0%, rgba(7,20,12,0.15) 40%, rgba(7,20,12,0.8) 100%),
+      linear-gradient(to right, rgba(7,20,12,0.45) 0%, transparent 65%);
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 640px; }
+  .hero-eyebrow {
+    font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 20px;
+    opacity: 0; animation: fadeUp 0.8s 0.3s forwards;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 7vw, 80px); font-weight: 300; line-height: 1.0;
+    color: var(--white); margin-bottom: 20px;
+    opacity: 0; animation: fadeUp 0.9s 0.5s forwards;
+  }
+  .hero-sub {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px; color: rgba(255,255,255,0.6); line-height: 1.9;
+    opacity: 0; animation: fadeUp 0.8s 0.7s forwards;
+  }
+
+  /* ── SECTIONS ── */
+  .section { max-width: 800px; padding: 96px 48px; margin: 0 auto; }
+  .section-label {
+    font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 20px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(24px, 4vw, 44px); font-weight: 300; line-height: 1.2;
+    color: var(--ink); margin-bottom: 24px;
+  }
+  .section-body {
+    font-size: 15px; line-height: 1.9; color: var(--ink); margin-bottom: 20px;
+  }
+  .section-body-en {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px; font-style: italic; font-weight: 300;
+    line-height: 1.8; color: var(--muted); margin-top: 8px;
+  }
+  .section-divider {
+    width: 100%; max-width: 800px; height: 1px;
+    background: var(--border); margin: 0 auto;
+  }
+
+  /* ── PROPERTY (DARK) ── */
+  .property-dark {
+    background: var(--ink); padding: 96px 48px;
+  }
+  .property-inner { max-width: 800px; margin: 0 auto; }
+  .property-dark .section-label { color: var(--gold-light); }
+  .property-dark .section-title { color: var(--white); }
+  .property-dark .section-body { color: rgba(255,255,255,0.6); }
+  .spec-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 28px;
+    margin-bottom: 36px;
+  }
+  .spec-item {}
+  .spec-label {
+    font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold-light); margin-bottom: 6px;
+  }
+  .spec-val {
+    font-family: 'Lora', serif;
+    font-size: 18px; font-weight: 300; color: var(--white);
+  }
+  .book-btns { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 32px; }
+  .book-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 14px 16px; text-decoration: none; transition: all 0.3s; line-height: 1.3;
+  }
+  .book-btn.airbnb { background: var(--gold); color: var(--ink); }
+  .book-btn.airbnb:hover { background: var(--gold-light); }
+  .book-btn.booking { background: rgba(255,255,255,0.08); color: var(--white); border: 1px solid rgba(255,255,255,0.18); }
+  .book-btn.booking:hover { background: rgba(255,255,255,0.15); }
+  .book-sub {
+    font-size: 10px; letter-spacing: 0.1em; color: rgba(255,255,255,0.3);
+    text-align: center; margin-top: 12px;
+  }
+
+  /* ── AMENITY LIST ── */
+  .amenity-list {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 32px;
+  }
+  .amenity-item {
+    display: flex; align-items: center; gap: 14px;
+    font-size: 14px; color: var(--ink);
+  }
+
+  /* ── CTA ── */
+  .cta-section { max-width: 800px; padding: 0 48px 96px; margin: 0 auto; text-align: center; }
+  .cta-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--ink); text-decoration: none;
+    border: 1px solid var(--border); padding: 14px 28px;
+    transition: all 0.3s; margin: 8px;
+  }
+  .cta-btn:hover { background: var(--ink); color: var(--white); border-color: var(--ink); }
+  .cta-btn-primary {
+    background: var(--gold); color: var(--ink); border-color: var(--gold);
+  }
+  .cta-btn-primary:hover { background: var(--gold-light); border-color: var(--gold-light); color: var(--ink); }
+
+  /* ── HAMBURGER ── */
+  .nav-hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    background: none; border: none; cursor: pointer; padding: 4px; z-index: 301;
+  }
+  .nav-hamburger span { display: block; width: 22px; height: 1px; background: var(--white); transition: all 0.3s; }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 960px) {
+    nav.topnav { padding: 18px 24px; }
+    .hero { padding: 0 24px 72px; }
+    .section { padding: 64px 24px; }
+    .property-dark { padding: 64px 24px; }
+    .spec-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+    .amenity-list { grid-template-columns: 1fr; }
+    .cta-section { padding: 0 24px 64px; }
+    .nav-links {
+      display: none; position: fixed; inset: 0;
+      background: #0e1a14; flex-direction: column;
+      align-items: center; justify-content: center; gap: 40px; z-index: 300;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a {
+      font-size: 22px; letter-spacing: 0.12em; color: var(--white);
+      font-family: 'Cormorant Garamond', serif; font-weight: 300; text-align: center;
+    }
+    .nav-sub {
+      display: block; font-family: 'DM Sans', sans-serif;
+      font-size: 11px; letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.35); margin-top: 4px; text-align: center;
+    }
+    .nav-dropdown-trigger {
+      font-size: 22px; letter-spacing: 0.12em; color: var(--white);
+      font-family: 'Cormorant Garamond', serif; font-weight: 300;
+    }
+    .nav-dropdown-menu {
+      position: static; background: none; border: none;
+      padding: 8px 0 8px 16px; transform: none; min-width: auto; display: none; text-align: center;
+    }
+    .nav-dropdown-menu a { font-size: 16px; color: rgba(255,255,255,0.5); padding: 8px 0; }
+    .nav-hamburger { display: flex; }
+  }
+
+  /* ── FOOTER ── */
+  .site-footer { background: var(--ink); border-top: 1px solid rgba(255,255,255,0.06); }
+  .footer-inner { display: grid; grid-template-columns: 1.5fr 1fr 1.2fr; gap: 56px; max-width: 1200px; margin: 0 auto; padding: 80px 48px 64px; }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 18px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--white); margin-bottom: 14px; }
+  .footer-tagline { font-family: 'Cormorant Garamond', serif; font-size: 14px; font-style: italic; font-weight: 300; color: var(--gold-light); margin-bottom: 16px; }
+  .footer-sub { font-size: 12px; line-height: 1.9; color: rgba(255,255,255,0.32); margin-bottom: 28px; }
+  .footer-social { display: flex; flex-direction: column; gap: 10px; }
+  .footer-social-link { display: inline-flex; align-items: center; gap: 8px; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.3s; }
+  .footer-social-link:hover { color: var(--gold-light); }
+  .footer-col-label { font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 20px; }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .footer-links a { font-size: 12px; color: rgba(255,255,255,0.42); text-decoration: none; transition: color 0.3s; }
+  .footer-links a:hover { color: var(--white); }
+  .footer-link-dim { opacity: 0.6; }
+  .footer-badge { display: inline-block; font-size: 8px; letter-spacing: 0.12em; background: rgba(196,168,74,0.15); color: var(--gold-light); padding: 2px 7px; border-radius: 10px; margin-left: 6px; }
+  .footer-contact-body { font-size: 12px; line-height: 1.9; color: rgba(255,255,255,0.32); margin-bottom: 20px; }
+  .footer-contact-btn { display: block; font-size: 11px; letter-spacing: 0.1em; color: var(--white); text-decoration: none; border: 1px solid rgba(255,255,255,0.14); padding: 12px 16px; text-align: center; transition: all 0.3s; margin-bottom: 16px; }
+  .footer-contact-btn:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.3); }
+  .footer-contact-note { font-size: 10px; color: rgba(255,255,255,0.22); line-height: 1.8; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; padding: 20px 48px; }
+  .footer-copy { font-size: 10px; color: rgba(255,255,255,0.18); }
+  .footer-bottom-links { display: flex; gap: 24px; }
+  .footer-bottom-links a { font-size: 10px; color: rgba(255,255,255,0.18); text-decoration: none; transition: color 0.3s; }
+  .footer-bottom-links a:hover { color: rgba(255,255,255,0.5); }
+  @media (max-width: 960px) {
+    .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; padding: 60px 24px 48px; }
+    .footer-brand { grid-column: 1 / -1; }
+    .footer-bottom { padding: 18px 24px; flex-direction: column; gap: 10px; text-align: center; }
+  }
+  @media (max-width: 640px) { .footer-inner { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="topnav" id="topNav">
+  <a href="index.html" class="nav-logo">SGH Resorts</a>
+  <div class="nav-links">
+    <a href="index.html">Top<span class="nav-sub">ホーム</span></a>
+    <a href="about.html">About<span class="nav-sub">SGH Resortsについて</span></a>
+    <div class="nav-dropdown">
+      <a href="about.html" class="nav-dropdown-trigger">Collections ▾</a>
+      <div class="nav-dropdown-menu">
+        <a href="okinawa.html">沖縄 — JYANA / URUMA</a>
+        <a href="miyako.html">宮古島 — Miyako House</a>
+        <a href="hakone.html">箱根 — wabi-sabi</a>
+        <a href="cambodia.html">Cambodia — Local Time Village</a>
+      </div>
+    </div>
+    <a href="corporate.html">Corporate<span class="nav-sub">法人・団体のご利用</span></a>
+    <a href="mailto:info@sghresorts.com">Contact<span class="nav-sub">お問い合わせ</span></a>
+    <a href="news.html">News<span class="nav-sub">お知らせ</span></a>
+  </div>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Local Time Collection — Cambodia</p>
+    <h1 class="hero-title">The origin of Local Time.</h1>
+    <p class="hero-sub">シェムリアップの住宅街に、私たちの原点がある。</p>
+  </div>
+</section>
+
+<!-- ── ORIGIN ── -->
+<section class="section reveal">
+  <p class="section-label">Origin</p>
+  <h2 class="section-title">すべては、ここから始まった。</h2>
+  <p class="section-body">
+    シェムリアップの住宅街の一角に、9つの部屋と母屋を持つ小さなホテルを開いた。観光地の中心ではなく、人が暮らすエリアの中に。観光客向けではなく、その街の空気の中に泊まれる場所として。それがLocal Time Villageの始まりであり、SGH Resortsのすべての起点になっている。
+  </p>
+  <p class="section-body-en">
+    A small hotel in a residential neighborhood.<br>
+    Not for tourists, but for those who want to live in Siem Reap's rhythm.
+  </p>
+</section>
+
+<!-- ── THE PROPERTY ── -->
+<section class="property-dark">
+  <div class="property-inner reveal">
+    <p class="section-label">The Property</p>
+    <h2 class="section-title">Local Time Village</h2>
+    <div class="spec-grid">
+      <div class="spec-item">
+        <div class="spec-label">ROOMS</div>
+        <div class="spec-val">9 rooms + Main House</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">CAPACITY</div>
+        <div class="spec-val">最大30名（Full Buyout）</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">LOCATION</div>
+        <div class="spec-val">Siem Reap, Cambodia</div>
+      </div>
+      <div class="spec-item">
+        <div class="spec-label">RATING</div>
+        <div class="spec-val">Booking.com 8.6 ★</div>
+      </div>
+    </div>
+    <p class="section-body" style="color:rgba(255,255,255,0.6);">
+      9つの客室と母屋。全館貸切（Full property buyout）で最大30名まで対応。シェムリアップのローカルエリアに佇む、SGH Resortsの原点。
+    </p>
+    <div class="book-btns">
+      <a href="https://www.airbnb.jp" target="_blank" class="book-btn airbnb">Airbnbで確認 →</a>
+      <a href="https://www.booking.com" target="_blank" class="book-btn booking">Booking.comで確認 →</a>
+    </div>
+    <p class="book-sub">空き状況・料金を確認してご予約ください</p>
+  </div>
+</section>
+
+<!-- ── EVOLUTION ── -->
+<section class="section reveal">
+  <p class="section-label">Evolution</p>
+  <h2 class="section-title">変わろうとしている。</h2>
+  <p class="section-body">
+    コロナ禍を経て、シェムリアップへの観光客はまだ完全には戻っていない。その時間を使って、Local Time Villageは変わろうとしている。
+  </p>
+  <p class="section-body">
+    ジム、マッサージルーム、カフェ、コンテナバー。長期滞在プラン、ローカル体験ツアー、マッサージセット。ただ泊まるだけではなく、一日中そこにいたくなる場所へ。
+  </p>
+  <p class="section-body">
+    次に人が戻ってきたとき、ここは「ただのホテル」ではなくなっている。
+  </p>
+  <p class="section-body-en">We're reimagining what it means to stay in local time.</p>
+
+  <div class="amenity-list">
+    <div class="amenity-item">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c4a84a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 01-12 0"/><path d="M12 2v2M4.93 10.93l1.41 1.41M2 18h2M20 18h2M17.66 12.34l1.41-1.41"/><path d="M6 18h12a2 2 0 012 2H4a2 2 0 012-2z"/></svg>
+      ジム＆フィットネス
+    </div>
+    <div class="amenity-item">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c4a84a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z"/></svg>
+      マッサージルーム
+    </div>
+    <div class="amenity-item">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c4a84a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8zM6 1v3M10 1v3M14 1v3"/></svg>
+      カフェ＆コンテナバー
+    </div>
+    <div class="amenity-item">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c4a84a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a4 4 0 00-8 0v2"/></svg>
+      長期滞在プラン
+    </div>
+    <div class="amenity-item">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c4a84a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      ローカル体験ツアー
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ── FOR CORPORATE ── -->
+<section class="section reveal">
+  <p class="section-label">For Corporate & Groups</p>
+  <h2 class="section-title">全館貸切、最大30名。</h2>
+  <p class="section-body">
+    海外インセンティブツアー、研修、チームリトリートに。シェムリアップの空気の中で、チーム全員がローカルな時間を過ごす。Full property buyoutで最大30名まで対応。日本語サポートあり。
+  </p>
+  <div style="margin-top:24px;">
+    <a href="corporate.html" class="cta-btn">法人・団体のご相談 →</a>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<div class="cta-section">
+  <a href="https://www.localtimevillage.com" target="_blank" class="cta-btn cta-btn-primary">Visit Local Time Village ↗</a>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <p class="footer-logo">SGH Resorts</p>
+      <p class="footer-tagline">Stay where time moves differently.</p>
+      <p class="footer-sub">沖縄・宮古島・箱根・カンボジア。<br>一棟、または一室から。</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/sghresorts" target="_blank" class="footer-social-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          @sghresorts
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-label">Properties</p>
+      <ul class="footer-links">
+        <li><a href="okinawa.html">沖縄 — Villa JYANA</a></li>
+        <li><a href="okinawa.html#uruma">沖縄 — URUMA DOME</a></li>
+        <li><a href="miyako.html">宮古島 — Miyako House</a></li>
+        <li><a href="hakone.html" class="footer-link-dim">箱根 — wabi-sabi <span class="footer-badge">近日公開</span></a></li>
+        <li><a href="cambodia.html">Cambodia — Local Time Village</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-label">Contact</p>
+      <p class="footer-contact-body">法人・団体でのご利用、複数施設の一括手配、その他お問い合わせはメールまたはDMにてお気軽にどうぞ。</p>
+      <a href="mailto:info@sghresorts.com" class="footer-contact-btn">info@sghresorts.com</a>
+      <p class="footer-contact-note">法人・団体のご相談歓迎<br>研修 / インセンティブ / 福利厚生</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 SGH Resorts. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="tokutei.html">特定商取引法</a>
+      <a href="news.html">お知らせ</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const topNav = document.getElementById('topNav');
+  window.addEventListener('scroll', () => {
+    topNav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+<script>
+  const hamburger = document.getElementById('navHamburger');
+  const navLinks = document.querySelector('.nav-links');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        navLinks.classList.remove('open');
+      });
+    });
+  }
+  const trigger = document.querySelector('.nav-dropdown-trigger');
+  const dropMenu = document.querySelector('.nav-dropdown-menu');
+  if (trigger && dropMenu) {
+    trigger.addEventListener('click', (e) => {
+      if (window.innerWidth <= 960) {
+        e.preventDefault();
+        const isOpen = dropMenu.style.display === 'block';
+        dropMenu.style.display = isOpen ? 'none' : 'block';
+      }
+    });
+  }
+</script>
+</body>
+</html>
