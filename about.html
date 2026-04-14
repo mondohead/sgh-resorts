@@ -29,19 +29,12 @@
     position: fixed; top: 0; left: 0; right: 0; z-index: 200;
     display: flex; justify-content: space-between; align-items: center;
     padding: 22px 48px;
-    transition: background 0.4s, backdrop-filter 0.4s;
-  }
-  nav.topnav.scrolled {
-    background: rgba(250,252,248,0.93);
-    backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--border);
   }
   .nav-logo {
     font-family: 'Cormorant Garamond', serif;
     font-size: 15px; letter-spacing: 0.2em; text-transform: uppercase;
     color: var(--white); text-decoration: none; transition: color 0.3s;
   }
-  nav.topnav.scrolled .nav-logo { color: var(--ink); }
   .nav-links {
     display: flex; align-items: center; gap: 24px;
   }
@@ -49,7 +42,6 @@
     font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
     text-decoration: none; color: rgba(255,255,255,0.6); transition: color 0.3s;
   }
-  nav.topnav.scrolled .nav-links a { color: var(--muted); }
   .nav-links a:hover { color: var(--gold-light); }
 
   /* ── HERO ── */
@@ -69,7 +61,7 @@
     color: var(--white); margin-bottom: 20px;
   }
   .hero-sub {
-    font-family: 'Shippori Mincho', serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 15px; color: rgba(255,255,255,0.5); line-height: 1.9;
   }
 
@@ -366,11 +358,6 @@
 </footer>
 
 <script>
-  const topNav = document.getElementById('topNav');
-  window.addEventListener('scroll', () => {
-    topNav.classList.toggle('scrolled', window.scrollY > 60);
-  });
-
   const hamburger = document.getElementById('navHamburger');
   const navLinks = document.querySelector('.nav-links');
   if (hamburger && navLinks) {
