@@ -82,7 +82,7 @@
   }
   .hero-bg {
     position: absolute; inset: 0;
-    background-image: url('https://images.unsplash.com/photo-1638402828376-5762cb098099?w=1800&auto=format&fit=crop&q=80') !important;
+    background-image: url('P1059140.jpg') !important;
     background-size: cover; background-position: center 40%;
   }
   .hero-bg::before {
@@ -136,6 +136,13 @@
   /* ── PROPERTY (DARK) ── */
   .property-dark {
     background: var(--ink); padding: 96px 48px;
+    position: relative;
+  }
+  .property-dark::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: url('DSC_4656.JPG');
+    background-size: cover; background-position: center;
+    opacity: 0.15;
   }
   .property-inner { max-width: 800px; margin: 0 auto; }
   .property-dark .section-label { color: var(--gold-light); }
@@ -313,7 +320,7 @@
 
 <!-- ── HERO ── -->
 <section class="hero">
-  <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1638402828376-5762cb098099?w=1800&auto=format&fit=crop&q=80');"></div>
+  <div class="hero-bg" style="background-image: url('P1059140.jpg');"></div>
   <div class="hero-content">
     <p class="hero-eyebrow">Local Time Collection — Cambodia</p>
     <h1 class="hero-title">The origin of Local Time.</h1>
