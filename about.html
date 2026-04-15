@@ -270,6 +270,64 @@
     .footer-bottom { padding: 18px 24px; flex-direction: column; gap: 10px; text-align: center; }
   }
   @media (max-width: 640px) { .footer-inner { grid-template-columns: 1fr; } }
+
+  /* ── EXPLORE GRID ── */
+  .explore-section {
+    padding: 80px 48px;
+    background: var(--ink);
+  }
+  .explore-label {
+    font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 40px;
+  }
+  .explore-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+  .explore-card {
+    position: relative; overflow: hidden;
+    aspect-ratio: 4/3; text-decoration: none;
+    display: block;
+  }
+  .explore-card-dim { opacity: 0.6; }
+  .explore-bg {
+    position: absolute; inset: 0;
+    transition: transform 0.7s ease;
+  }
+  .explore-card:hover .explore-bg { transform: scale(1.04); }
+  .explore-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(7,20,12,0.75) 0%, transparent 60%);
+  }
+  .explore-content {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 24px 28px;
+  }
+  .explore-badge {
+    display: inline-block; font-size: 8px; letter-spacing: 0.14em;
+    background: rgba(196,168,74,0.2); color: var(--gold-light);
+    padding: 3px 10px; border-radius: 20px; margin-bottom: 8px;
+  }
+  .explore-region {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px; font-weight: 300; color: var(--white);
+    line-height: 1; margin-bottom: 4px;
+  }
+  .explore-name {
+    font-size: 11px; letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.5); margin-bottom: 12px;
+  }
+  .explore-arrow {
+    font-size: 14px; color: var(--gold-light);
+  }
+  @media (max-width: 960px) {
+    .explore-grid { grid-template-columns: 1fr 1fr; }
+    .explore-section { padding: 64px 24px; }
+  }
+  @media (max-width: 640px) {
+    .explore-grid { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -387,6 +445,55 @@
   <p class="about-body">
     SGHの拠点は、個人の旅だけでなく、チームや法人にも開いている。完全貸切の空間で、オフィスとは違う場所で話す時間が、チームに何かをもたらすことを、私たちは何度も見てきた。沖縄・宮古島・箱根・カンボジア、複数の拠点を組み合わせた法人プランも相談できる。
   </p>
+</section>
+
+<!-- ── EXPLORE GRID ── -->
+<section class="explore-section">
+  <p class="explore-label">Explore Local Time</p>
+  <div class="explore-grid">
+
+    <a href="okinawa.html" class="explore-card">
+      <div class="explore-bg" style="background-image:url('NF102992.jpg');background-size:cover;background-position:center;"></div>
+      <div class="explore-overlay"></div>
+      <div class="explore-content">
+        <p class="explore-region">Okinawa</p>
+        <p class="explore-name">Villa JYANA / URUMA DOME</p>
+        <span class="explore-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="miyako.html" class="explore-card">
+      <div class="explore-bg" style="background-image:url('NF203091.jpg');background-size:cover;background-position:center;"></div>
+      <div class="explore-overlay"></div>
+      <div class="explore-content">
+        <p class="explore-region">Miyakojima</p>
+        <p class="explore-name">Value Residence</p>
+        <span class="explore-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="cambodia.html" class="explore-card">
+      <div class="explore-bg" style="background-image:url('https://images.unsplash.com/photo-1638402828376-5762cb098099?w=960&auto=format&fit=crop&q=80');background-size:cover;background-position:center;"></div>
+      <div class="explore-overlay"></div>
+      <div class="explore-content">
+        <p class="explore-region">Cambodia</p>
+        <p class="explore-name">Local Time Village</p>
+        <span class="explore-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="hakone.html" class="explore-card explore-card-dim">
+      <div class="explore-bg" style="background-image:url('https://images.unsplash.com/photo-1672594859456-50b7dc769a69?w=960&auto=format&fit=crop&q=80');background-size:cover;background-position:center;"></div>
+      <div class="explore-overlay"></div>
+      <div class="explore-content">
+        <span class="explore-badge">近日公開</span>
+        <p class="explore-region">Hakone</p>
+        <p class="explore-name">wabi-sabi</p>
+        <span class="explore-arrow">→</span>
+      </div>
+    </a>
+
+  </div>
 </section>
 
 <div class="about-cta">
