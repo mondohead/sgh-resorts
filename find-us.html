@@ -126,36 +126,49 @@
     font-size: 11px; color: var(--muted); margin-top: 16px; letter-spacing: 0.04em;
   }
 
-  /* ── ACCESS GRID ── */
-  .access-section { padding: 0; }
-  .access-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
-    background: rgba(255,255,255,0.06);
+  /* ── ACCESS (DEALER STYLE) ── */
+  .access-body {
+    display: grid; grid-template-columns: 1fr 1fr;
+    border-top: 1px solid rgba(255,255,255,0.08);
   }
-  .access-card {
-    background: var(--ink); padding: 48px;
+  .access-region {
+    padding: 48px 44px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .access-region:nth-child(odd) {
+    border-right: 1px solid rgba(255,255,255,0.08);
+  }
+  .access-region-wide { grid-column: span 2; border-right: none; }
+  .access-region-label {
+    font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 24px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .access-region-label::after {
+    content: ''; flex: 1; height: 1px;
+    background: rgba(255,255,255,0.08);
   }
   .access-name {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 22px; font-weight: 300; color: var(--white); margin-bottom: 6px;
+    font-size: 22px; font-weight: 300; color: var(--white); margin-bottom: 8px;
   }
-  .access-area {
-    font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
-    color: var(--gold-light); margin-bottom: 16px;
+  .access-info {
+    font-size: 12px; color: rgba(255,255,255,0.4);
+    line-height: 1.8; margin-bottom: 16px; letter-spacing: 0.04em;
   }
-  .access-body {
-    font-size: 13px; line-height: 1.8; color: rgba(255,255,255,0.5); margin-bottom: 16px;
-  }
-  .access-links { display: flex; gap: 16px; flex-wrap: wrap; }
   .access-link {
-    font-size: 10px; letter-spacing: 0.1em;
-    color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.3s;
+    display: block; font-size: 9px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: rgba(255,255,255,0.4);
+    text-decoration: none; margin-bottom: 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+    padding-bottom: 2px; width: fit-content; transition: color 0.2s;
   }
-  .access-link:hover { color: var(--white); }
+  .access-link:hover { color: var(--white); border-color: var(--white); }
   .access-badge {
-    display: inline-block; font-size: 8px; letter-spacing: 0.12em;
+    font-size: 8px; letter-spacing: 0.12em;
     background: rgba(196,168,74,0.15); color: var(--gold-light);
-    padding: 2px 7px; border-radius: 10px; margin-left: 6px;
+    padding: 2px 8px; border-radius: 10px; margin-left: 8px;
+    vertical-align: middle;
   }
 
   /* ── HAMBURGER ── */
@@ -174,8 +187,10 @@
     .hero { padding: 140px 24px 80px; }
     .section { padding: 64px 24px; }
     .contact-form { grid-template-columns: 1fr; }
-    .access-grid { grid-template-columns: 1fr; }
-    .access-card { padding: 36px 24px; }
+    .access-body { grid-template-columns: 1fr; }
+    .access-region:nth-child(odd) { border-right: none; }
+    .access-region-wide { grid-column: span 1; }
+    .access-region { padding: 40px 24px; }
     .nav-links {
       display: none; position: fixed; inset: 0;
       background: #0e1a14; flex-direction: column;
@@ -324,47 +339,48 @@
     <p class="section-label">Access</p>
     <h2 class="section-title">施設へのアクセス</h2>
   </div>
-  <div class="access-grid">
-    <div class="access-card">
-      <h3 class="access-name">Villa JYANA</h3>
-      <p class="access-area">沖縄・今帰仁</p>
-      <p class="access-body">那覇空港から車で約90分 / 駐車場あり</p>
-      <div class="access-links">
+  <div class="access-body">
+    <div class="access-region">
+      <p class="access-region-label">Okinawa — 今帰仁</p>
+      <div class="access-item">
+        <p class="access-name">Villa JYANA</p>
+        <p class="access-info">那覇空港から車で約90分 / 駐車場あり</p>
         <a href="https://maps.app.goo.gl/jmyBaqLTCfeDKPJp8" target="_blank" class="access-link">Google Mapで見る ↗</a>
         <a href="okinawa.html#jyana" class="access-link">施設ページへ →</a>
       </div>
     </div>
-    <div class="access-card">
-      <h3 class="access-name">URUMA DOME</h3>
-      <p class="access-area">沖縄・うるま</p>
-      <p class="access-body">那覇空港から車で約60分 / 駐車場あり</p>
-      <div class="access-links">
+    <div class="access-region">
+      <p class="access-region-label">Okinawa — うるま</p>
+      <div class="access-item">
+        <p class="access-name">URUMA DOME</p>
+        <p class="access-info">那覇空港から車で約60分 / 駐車場あり</p>
         <a href="https://maps.app.goo.gl/hqAsw5uQQ91S1HJn8" target="_blank" class="access-link">Google Mapで見る ↗</a>
         <a href="okinawa.html#uruma" class="access-link">施設ページへ →</a>
       </div>
     </div>
-    <div class="access-card">
-      <h3 class="access-name">Value Residence</h3>
-      <p class="access-area">宮古島</p>
-      <p class="access-body">宮古島空港から車で約20分 / 駐車場あり</p>
-      <div class="access-links">
+    <div class="access-region">
+      <p class="access-region-label">Miyakojima</p>
+      <div class="access-item">
+        <p class="access-name">Value Residence</p>
+        <p class="access-info">宮古島空港から車で約20分 / 駐車場あり</p>
         <a href="https://maps.app.goo.gl/GbySzDKt1Wj84HNF6" target="_blank" class="access-link">Google Mapで見る ↗</a>
         <a href="miyako.html" class="access-link">施設ページへ →</a>
       </div>
     </div>
-    <div class="access-card">
-      <h3 class="access-name">wabi-sabi <span class="access-badge">近日公開</span></h3>
-      <p class="access-area">箱根</p>
-      <p class="access-body">小田原駅から車で約30分</p>
-      <div class="access-links">
+    <div class="access-region">
+      <p class="access-region-label">Hakone</p>
+      <div class="access-item">
+        <p class="access-name">wabi-sabi <span class="access-badge">近日公開</span></p>
+        <p class="access-info">小田原駅から車で約30分</p>
         <a href="https://www.google.com/maps/place/箱根町" target="_blank" class="access-link">Google Mapで見る ↗</a>
+        <a href="hakone.html" class="access-link">施設ページへ →</a>
       </div>
     </div>
-    <div class="access-card" style="grid-column: 1 / -1;">
-      <h3 class="access-name">Local Time Village</h3>
-      <p class="access-area">Siem Reap, Cambodia</p>
-      <p class="access-body">シェムリアップ国際空港から車で約15分</p>
-      <div class="access-links">
+    <div class="access-region access-region-wide">
+      <p class="access-region-label">Siem Reap, Cambodia</p>
+      <div class="access-item">
+        <p class="access-name">Local Time Village</p>
+        <p class="access-info">シェムリアップ国際空港から車で約15分</p>
         <a href="https://maps.app.goo.gl/SQtK2YKfyqeWBeca7" target="_blank" class="access-link">Google Mapで見る ↗</a>
         <a href="cambodia.html" class="access-link">施設ページへ →</a>
       </div>
