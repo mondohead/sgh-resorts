@@ -213,12 +213,18 @@
       font-style: normal;
       text-transform: none;
     }
+    .nav-dropdown {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
     .nav-dropdown-trigger {
       font-size: 22px;
       letter-spacing: 0.12em;
       color: var(--white);
       font-family: 'Cormorant Garamond', serif;
       font-weight: 300;
+      text-align: center;
     }
     .mobile-cat-list {
       position: static !important;
@@ -228,8 +234,9 @@
       transform: none !important;
       display: none;
       flex-direction: column;
-      padding: 12px 0 0 24px;
-      gap: 16px;
+      align-items: center;
+      gap: 20px;
+      padding-top: 16px;
       background: none;
       border: none;
       min-width: auto;
