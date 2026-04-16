@@ -432,15 +432,19 @@
       font-family: 'Cormorant Garamond', serif;
       font-weight: 300;
     }
-    .nav-dropdown-menu {
+    .mobile-cat-list {
       position: static;
+      display: none;
+      flex-direction: column;
+      padding: 8px 0 0 20px;
+      gap: 12px;
       background: none;
       border: none;
-      padding: 8px 0 8px 16px;
       transform: none;
       min-width: auto;
-      display: none;
-      text-align: center;
+    }
+    .mobile-cat-list.open {
+      display: flex;
     }
     .nav-dropdown-menu a {
       font-size: 16px;
@@ -501,7 +505,7 @@
     <a href="index.html">Top<span class="nav-sub">ホーム</span></a>
     <div class="nav-dropdown">
       <a href="about.html" class="nav-dropdown-trigger">Collections ▾</a>
-      <div class="nav-dropdown-menu">
+      <div class="nav-dropdown-menu mobile-cat-list">
         <a href="okinawa.html">沖縄 — JYANA / URUMA</a>
         <a href="miyako.html">宮古島 — Value Residence</a>
         <a href="hakone.html">箱根 — wabi-sabi</a>
@@ -543,7 +547,7 @@
   <div class="intro-wide">
     <div class="reveal">
       <p class="intro-label">Local Time — Miyakojima</p>
-      <h2 class="intro-title">沖縄とも違う、 宮古島だけの青。</h2>
+      <h2 class="intro-title">沖縄本島とも違う、宮古島だけの青。</h2>
       <p class="intro-body">
         「宮古ブルー」と呼ばれる、世界でも有数の透明度を誇る海。本島から飛行機で約45分の場所にある宮古島は、観光地化された沖縄とは別の静けさを持っています。Value Residenceは、その海のすぐそばにある2LDKの一棟貸し。最大6名まで泊まれる広さで、家族旅行にも、仲間のグループにも。
       </p>
@@ -776,8 +780,7 @@
     trigger.addEventListener('click', (e) => {
       if (window.innerWidth <= 960) {
         e.preventDefault();
-        const isOpen = dropMenu.style.display === 'block';
-        dropMenu.style.display = isOpen ? 'none' : 'block';
+        dropMenu.classList.toggle('open');
       }
     });
   }

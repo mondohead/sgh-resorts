@@ -425,12 +425,17 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(24px, 4vw, 44px); font-weight: 300; color: var(--ink);
   }
-  .view-all-link {
-    font-size: 11px; letter-spacing: 0.12em; color: var(--fern);
-    text-decoration: none; border-bottom: 1px solid rgba(61,107,72,0.4);
-    padding-bottom: 2px; transition: opacity 0.3s;
+  .properties-cta {
+    text-align: right;
+    padding: 24px 0 0;
   }
-  .view-all-link:hover { opacity: 0.6; }
+  .properties-cta-link {
+    font-size: 11px; letter-spacing: 0.14em;
+    color: var(--fern); text-decoration: none;
+    border-bottom: 1px solid rgba(61,107,72,0.3);
+    padding-bottom: 2px; transition: color 0.2s;
+  }
+  .properties-cta-link:hover { color: var(--ink); }
 
   .properties-grid { display: grid; grid-template-columns: 1.35fr 1fr 1fr; gap: 16px; }
   .prop-card {
@@ -678,15 +683,19 @@
       font-family: 'Cormorant Garamond', serif;
       font-weight: 300;
     }
-    .nav-dropdown-menu {
+    .mobile-cat-list {
       position: static;
+      display: none;
+      flex-direction: column;
+      padding: 8px 0 0 20px;
+      gap: 12px;
       background: none;
       border: none;
-      padding: 8px 0 8px 16px;
       transform: none;
       min-width: auto;
-      display: none;
-      text-align: center;
+    }
+    .mobile-cat-list.open {
+      display: flex;
     }
     .nav-dropdown-menu a {
       font-size: 16px;
@@ -719,7 +728,7 @@
     <a href="index.html">Top<span class="nav-sub">ホーム</span></a>
     <div class="nav-dropdown">
       <a href="about.html" class="nav-dropdown-trigger">Collections ▾</a>
-      <div class="nav-dropdown-menu">
+      <div class="nav-dropdown-menu mobile-cat-list">
         <a href="okinawa.html">沖縄 — JYANA / URUMA</a>
         <a href="miyako.html">宮古島 — Value Residence</a>
         <a href="hakone.html">箱根 — wabi-sabi</a>
@@ -793,7 +802,6 @@
         それぞれの場所の、それぞれの時間の流れ。
       </p>
     </div>
-    <a href="okinawa.html" class="view-all-link">沖縄・宮古島の物件を見る →</a>
   </div>
   <div class="properties-grid">
 
@@ -836,6 +844,11 @@
       </div>
     </a>
 
+  </div>
+  <div class="properties-cta">
+    <a href="okinawa.html" class="properties-cta-link">
+      沖縄本島・宮古島の物件を見る →
+    </a>
   </div>
 </section>
 
@@ -950,7 +963,7 @@
       <p style="font-size:13px; line-height:1.9; color:var(--muted);">各物件ページのボタンからAirbnbまたはBooking.comにてご予約いただけます。法人・団体でのご利用や複数施設の一括手配はお問い合わせよりご相談ください。</p>
     </div>
     <div class="faq-item" style="border-top:1px solid var(--warm); padding:28px 0;">
-      <h3 style="font-size:15px; font-weight:400; color:var(--ink); margin-bottom:12px;">沖縄と宮古島はどちらがおすすめですか？</h3>
+      <h3 style="font-size:15px; font-weight:400; color:var(--ink); margin-bottom:12px;">沖縄本島と宮古島はどちらがおすすめですか？</h3>
       <p style="font-size:13px; line-height:1.9; color:var(--muted);">沖縄本島（今帰仁・うるま）は世界遺産や海中道路など、エリアごとに異なる体験が楽しめます。宮古島は「宮古ブルー」と呼ばれる透明度の高い海が特徴で、静かな滞在を求める方に人気です。最大6名まで泊まれるValue Residenceはグループ旅行にも適しています。</p>
     </div>
     <div class="faq-item" style="border-top:1px solid var(--warm); border-bottom:1px solid var(--warm); padding:28px 0;">
@@ -967,7 +980,7 @@
     {"@type":"Question","name":"一棟貸しとはどういう意味ですか？","acceptedAnswer":{"@type":"Answer","text":"建物全体を1グループで独占してご利用いただける宿泊スタイルです。他のゲストと共有するスペースはなく、プライベートな時間を過ごせます。"}},
     {"@type":"Question","name":"グループや法人での利用は可能ですか？","acceptedAnswer":{"@type":"Answer","text":"はい、歓迎しております。研修・インセンティブツアー・チームリトリート・福利厚生旅行など、多くの法人・団体様にご利用いただいています。"}},
     {"@type":"Question","name":"予約はどこからできますか？","acceptedAnswer":{"@type":"Answer","text":"各物件ページのボタンからAirbnbまたはBooking.comにてご予約いただけます。"}},
-    {"@type":"Question","name":"沖縄と宮古島はどちらがおすすめですか？","acceptedAnswer":{"@type":"Answer","text":"沖縄本島は世界遺産や海中道路など多様な体験が、宮古島は宮古ブルーの透明な海が特徴です。"}},
+    {"@type":"Question","name":"沖縄本島と宮古島はどちらがおすすめですか？","acceptedAnswer":{"@type":"Answer","text":"沖縄本島は世界遺産や海中道路など多様な体験が、宮古島は宮古ブルーの透明な海が特徴です。"}},
     {"@type":"Question","name":"箱根の物件はいつから予約できますか？","acceptedAnswer":{"@type":"Answer","text":"箱根のwabi-sabiは現在準備中です。箱根ページよりメールアドレスをご登録いただくと公開時にご連絡します。"}}
   ]
 }
@@ -1058,8 +1071,7 @@
     trigger.addEventListener('click', (e) => {
       if (window.innerWidth <= 960) {
         e.preventDefault();
-        const isOpen = dropMenu.style.display === 'block';
-        dropMenu.style.display = isOpen ? 'none' : 'block';
+        dropMenu.classList.toggle('open');
       }
     });
   }
